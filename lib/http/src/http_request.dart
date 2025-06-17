@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:wan_android_flutter/model/models.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
@@ -32,7 +35,7 @@ class HttpRequest {
   static Dio? _dio;
 
   /// 创建 dio 实例对象
-  static Dio createInstance([bool isJson = false]) {
+  static Future<Dio> createInstance([bool isJson = false]) async {
     if (_dio == null) {
       /// 全局属性：请求前缀、连接超时时间、响应超时时间
       var options = BaseOptions(
@@ -55,8 +58,8 @@ class HttpRequest {
         receiveTimeout: _receiveTimeout,
       );
       _dio = Dio(options);
-      var cookieJar = CookieJar();
-      _dio?.interceptors.add(CookieManager(cookieJar));
+      var persistCookieJar = await prepareJar();
+      _dio?.interceptors.add(CookieManager(persistCookieJar));
       _dio?.interceptors.add(PrettyDioLogger());
       // 重试拦截器
       _dio?.interceptors.add(
@@ -82,6 +85,16 @@ class HttpRequest {
     return _dio!;
   }
 
+  /// 提供persistCookieJar
+  static Future<PersistCookieJar> prepareJar() async {
+    final Directory appDocDir = await getApplicationDocumentsDirectory();
+    final String appDocPath = appDocDir.path;
+    return PersistCookieJar(
+      ignoreExpires: true,
+      storage: FileStorage("$appDocPath/.cookies/"),
+    );
+  }
+
   /// 请求，返回参数为 T
   /// [method]：请求方法，Method.POST等
   /// [path]：请求地址
@@ -103,7 +116,7 @@ class HttpRequest {
         _onError(HttpException.netError, '网络异常，请检查你的网络！', fail);
         return;
       }
-      Dio dio = createInstance(isJson);
+      Dio dio = await createInstance(isJson);
       Response response = await dio.request(
         path,
         data: params,
