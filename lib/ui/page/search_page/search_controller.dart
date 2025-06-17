@@ -55,7 +55,6 @@ class SearchController extends BaseGetPageController {
         }
         searchResult.addAll(data);
         showSuccess(searchResult);
-        searchResult.value = searchResult.value;
       },
       fail: (code, msg) {
         showError();

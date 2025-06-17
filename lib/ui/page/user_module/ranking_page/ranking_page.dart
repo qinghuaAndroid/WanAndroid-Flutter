@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
 import 'ranking_controller.dart';
@@ -24,7 +24,7 @@ class RankingPage extends GetCommonView<RankingController> {
           ToolBar(
             backgroundColor: Colors.transparent,
             backColor: Colors.white,
-            backOnTap: () => Get.back(),
+            backOnTap: () => Navigate.pop(),
           ),
           Image.asset(R.assetsIntegralRanking),
           Expanded(

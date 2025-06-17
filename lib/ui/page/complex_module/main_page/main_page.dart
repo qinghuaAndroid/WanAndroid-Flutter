@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
-import 'package:wan_android_flutter/routes/i_router.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
@@ -49,7 +48,7 @@ class MainPage extends GetSaveView<MainController> {
                             height: 140,
                             onTap: (index) {
                               if (index == 0) {
-                                XNavigator.push(Routes.rankingPage);
+                                Navigate.push(Routes.rankingPage);
                               } else {
                                 WebUtil.toWebPageBanners(
                                   controller.banner[index],

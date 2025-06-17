@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
 import 'setting_controller.dart';
@@ -23,7 +24,7 @@ class SettingPage extends GetCommonView<SettingController> {
           ToolBar(title: StringStyles.settingTitle.tr),
           DividerStyle.divider1Half,
           ListTile(
-            onTap: () => Get.toNamed(Routes.settingLanguagePage),
+            onTap: () => Navigate.push(Routes.settingLanguagePage),
             title: Text(StringStyles.settingLanguage.tr),
             trailing: const Icon(Icons.keyboard_arrow_right),
           ),

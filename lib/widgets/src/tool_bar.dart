@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 
 /// @page : ToolBar
 /// @name : jhf
@@ -51,7 +51,7 @@ class _ToolBarState extends State<ToolBar> {
               margin: const EdgeInsets.only(top: 10, bottom: 6, left: 15),
               child: InkWell(
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
-                onTap: widget.backOnTap ?? () => Get.back(),
+                onTap: widget.backOnTap ?? () => Navigate.pop(),
                 splashColor: ColorStyle.color_E2E3E8_66,
                 highlightColor: ColorStyle.color_E2E3E8_66,
                 child: Container(

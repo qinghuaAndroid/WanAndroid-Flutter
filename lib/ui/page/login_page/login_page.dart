@@ -99,7 +99,7 @@ class LoginPage extends GetCommonView<LoginController> {
                 style: ButtonStyles.getButtonStyle(),
                 onPressed: () {
                   KeyboardUtils.hideKeyboard(context);
-                  Get.toNamed(Routes.registerPage);
+                  Navigate.push(Routes.registerPage);
                 },
                 child: Text(
                   StringStyles.registerButton.tr,

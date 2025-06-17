@@ -6,6 +6,7 @@ import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/ui/page/complex_module/ask_page/ask_page.dart';
 import 'package:wan_android_flutter/ui/page/complex_module/main_page/main_page.dart';
 import 'package:wan_android_flutter/ui/page/complex_module/square_page/square_page.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
 /// @class : ComplexPage
@@ -70,7 +71,7 @@ class _ComplexPageState extends State<ComplexPage>
                 ///搜索框
                 Ripple(
                   circular: 20,
-                  onTap: () => Get.toNamed(Routes.searchPage),
+                  onTap: () => Navigate.push(Routes.searchPage),
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: SvgPicture.asset(

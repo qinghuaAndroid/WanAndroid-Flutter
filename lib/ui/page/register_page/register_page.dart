@@ -33,7 +33,7 @@ class RegisterPage extends GetCommonView<RegisterController> {
             children: [
               ToolBar(
                 backColor: Colors.white,
-                backOnTap: () => Get.back(),
+                backOnTap: () => Navigate.pop(),
                 backgroundColor: Colors.transparent,
               ),
 

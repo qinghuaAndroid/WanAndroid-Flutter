@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/model/models.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
-
-import 'save/sp_util.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 
 /// @class : WebUtil
 /// @date : 2021/9/14
@@ -11,7 +10,7 @@ import 'save/sp_util.dart';
 class WebUtil {
   ///普通页面进入Web页面1
   static toWebPage(ProjectDetail detail, {Function(bool)? onResult}) {
-    Get.toNamed(
+    Navigate.push(
       Routes.webViewPage,
       arguments: WebEntity(
         title: detail.title,
@@ -31,7 +30,7 @@ class WebUtil {
 
   ///收藏页面进入Web页面2
   static Future<dynamic>? toWebPageCollect(CollectDetail detail) {
-    return Get.toNamed(
+    return Navigate.push(
       Routes.webViewPage,
       arguments: WebEntity(
         title: detail.title,
@@ -45,7 +44,7 @@ class WebUtil {
 
   ///普通页面进入Web页面2
   static toWebPageBanners(Banners detail) {
-    Get.toNamed(
+    Navigate.push(
       Routes.webViewPage,
       arguments: WebEntity(
         title: detail.title,
@@ -58,7 +57,7 @@ class WebUtil {
 
   ///其他页面进入Web页面2
   static toWebPageOther({String title = '', String link = ''}) {
-    Get.toNamed(
+    Navigate.push(
       Routes.webViewPage,
       arguments: WebEntity(title: title, link: link, id: 0, isCollect: false),
     );

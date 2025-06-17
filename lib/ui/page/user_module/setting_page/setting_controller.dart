@@ -41,6 +41,6 @@ class SettingController extends BaseGetController {
   exitLoginState() {
     SpUtil.deleteUserInfo();
     request.exitLogin();
-    Get.offAllNamed(Routes.loginPage);
+    Navigate.cleanRouteAndPush(Routes.loginPage);
   }
 }

@@ -73,7 +73,7 @@ class ShareArticleDialog extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   shareArticle();
-                  Get.back();
+                  Navigate.pop();
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -94,7 +94,7 @@ class ShareArticleDialog extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigate.launchInBrowser(url);
-                  Get.back();
+                  Navigate.pop();
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(

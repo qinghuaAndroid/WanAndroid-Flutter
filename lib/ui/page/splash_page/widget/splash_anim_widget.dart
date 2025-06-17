@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
-import 'package:wan_android_flutter/routes/i_router.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/ui/page/splash_page/splash_controller.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 
 /// @class : SplashAnimWidget
 /// @date : 2021/08/17
@@ -17,7 +17,7 @@ class SplashAnimWidget extends GetCommonView<SplashController> {
   Widget build(BuildContext context) {
     return AnimatedOpacity(
       onEnd: () {
-        XNavigator.popAndPush(Routes.homePage);
+        Navigate.popAndPush(Routes.homePage);
       },
       opacity: controller.opacityLevel,
       duration: const Duration(milliseconds: 2000),

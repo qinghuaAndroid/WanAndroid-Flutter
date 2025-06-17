@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
-import 'package:wan_android_flutter/routes/i_router.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
 
@@ -52,7 +51,7 @@ class LoginController extends BaseGetController {
       password,
       success: (data) {
         ToastUtils.show(StringStyles.loginSuccess.tr);
-        XNavigator.popAndPush(Routes.homePage);
+        Navigate.popAndPush(Routes.homePage);
       },
     );
   }

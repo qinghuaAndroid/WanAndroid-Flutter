@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
 import 'userinfo_controller.dart';
@@ -22,7 +23,7 @@ class UserInfoPage extends GetCommonView<UserInfoController> {
         children: [
           ToolBar(
             title: StringStyles.homeUserInfo.tr,
-            backOnTap: () => Get.back(),
+            backOnTap: () => Navigate.pop(),
           ),
 
           ///头像

@@ -47,7 +47,7 @@ class FeedbackController extends BaseGetController {
     Future.delayed(const Duration(seconds: 2)).then((value) {
       Get.dismiss();
       ToastUtils.show(StringStyles.feedbackSuccess.tr);
-      Get.back();
+      Navigate.pop();
     });
   }
 }

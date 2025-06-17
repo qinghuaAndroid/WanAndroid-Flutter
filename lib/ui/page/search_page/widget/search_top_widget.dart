@@ -39,7 +39,7 @@ class SearchTopWidget extends GetCommonView<SearchController> {
         Box.hBox15,
         Ripple(
           circular: 20,
-          onTap: () => Get.back(),
+          onTap: () => Navigate.pop(),
           child: const Padding(
             padding: EdgeInsets.all(5),
             child: Icon(

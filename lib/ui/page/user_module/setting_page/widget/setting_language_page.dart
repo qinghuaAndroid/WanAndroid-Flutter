@@ -64,7 +64,7 @@ class _SettingLanguagePageState extends State<SettingLanguagePage> {
                         ..[index].isSelect = true;
                       SpUtil.updateLanguage(language[index]);
                       LocaleUtil.updateLocale(language[index]);
-                      Get.back();
+                      Navigate.pop();
                     },
                     title: Text(language[index].name),
                     trailing: Visibility(

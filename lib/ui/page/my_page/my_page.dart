@@ -28,7 +28,7 @@ class MyPage extends GetSaveView<MyController> {
             children: [
               ///头像
               GestureDetector(
-                onTap: () => Get.toNamed(Routes.userInfoPage),
+                onTap: () => Navigate.push(Routes.userInfoPage),
                 child: Container(
                   margin: const EdgeInsets.only(left: 24),
                   decoration: ShadowStyle.black12Circle40(),
@@ -52,7 +52,7 @@ class MyPage extends GetSaveView<MyController> {
 
               ///设置
               GestureDetector(
-                onTap: () => Get.toNamed(Routes.settingPage),
+                onTap: () => Navigate.push(Routes.settingPage),
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -83,7 +83,7 @@ class MyPage extends GetSaveView<MyController> {
                   child: TitleContentWidget(
                     title: StringStyles.homeCollect.tr,
                     content: controller.userInfo.collectIds.length.toString(),
-                    onTap: () => Get.toNamed(Routes.collectPage),
+                    onTap: () => Navigate.push(Routes.collectPage),
                   ),
                 ),
 
@@ -94,7 +94,7 @@ class MyPage extends GetSaveView<MyController> {
                     () => TitleContentWidget(
                       title: StringStyles.homePartake.tr,
                       content: '${controller.share}',
-                      onTap: () => Get.toNamed(Routes.sharePage),
+                      onTap: () => Navigate.push(Routes.sharePage),
                     ),
                   ),
                 ),
@@ -105,7 +105,7 @@ class MyPage extends GetSaveView<MyController> {
                   child: TitleContentWidget(
                     title: StringStyles.homePoints.tr,
                     content: controller.userInfo.coinCount.toString(),
-                    onTap: () => Get.toNamed(Routes.pointsPage),
+                    onTap: () => Navigate.push(Routes.pointsPage),
                   ),
                 ),
 
@@ -116,7 +116,7 @@ class MyPage extends GetSaveView<MyController> {
                     () => TitleContentWidget(
                       title: StringStyles.homeHistory.tr,
                       content: '${controller.browseHistory.value}',
-                      onTap: () => Get.toNamed(Routes.historyPage),
+                      onTap: () => Navigate.push(Routes.historyPage),
                     ),
                   ),
                 ),
@@ -132,7 +132,7 @@ class MyPage extends GetSaveView<MyController> {
               children: [
                 ///积分排行榜
                 GestureDetector(
-                  onTap: () => Get.toNamed(Routes.rankingPage),
+                  onTap: () => Navigate.push(Routes.rankingPage),
                   child: Container(
                     padding: const EdgeInsets.only(
                       top: 16,
@@ -161,7 +161,7 @@ class MyPage extends GetSaveView<MyController> {
                   icon: Icons.perm_identity,
                   text: StringStyles.homeUserInfo.tr,
                   endColor: Colors.black54,
-                  onTap: () => Get.toNamed(Routes.userInfoPage),
+                  onTap: () => Navigate.push(Routes.userInfoPage),
                 ),
 
                 ///关于
@@ -169,7 +169,7 @@ class MyPage extends GetSaveView<MyController> {
                   icon: Icons.info_outline,
                   text: StringStyles.homeAbout.tr,
                   endColor: Colors.black54,
-                  onTap: () => Get.toNamed(Routes.aboutPage),
+                  onTap: () => Navigate.push(Routes.aboutPage),
                 ),
 
                 ///分享
@@ -187,7 +187,7 @@ class MyPage extends GetSaveView<MyController> {
                   icon: Icons.feedback_outlined,
                   text: StringStyles.homeFeedback.tr,
                   endColor: Colors.black45,
-                  onTap: () => Get.toNamed(Routes.feedbackPage),
+                  onTap: () => Navigate.push(Routes.feedbackPage),
                 ),
               ],
             ),
