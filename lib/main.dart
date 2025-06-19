@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
+import 'package:wan_android_flutter/routes/navigation_history_observer.dart';
 
 import 'app/app_theme.dart';
 import 'routes/routes.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
           context,
         ).copyWith(textScaler: TextScaler.noScaling, boldText: false),
         child: GetMaterialApp(
+          navigatorObservers: [NavigationHistoryObserver()],
           getPages: Routes.routePage,
           debugShowCheckedModeBanner: false,
           popGesture: Get.isPopGestureEnable,
