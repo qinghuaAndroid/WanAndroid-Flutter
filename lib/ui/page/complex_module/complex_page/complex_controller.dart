@@ -16,7 +16,7 @@ class ComplexController extends BaseGetController {
   void requestTabModule() {
     Request.get<dynamic>(
       RequestApi.apiTab,
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         debugPrint("信息>>>$data");

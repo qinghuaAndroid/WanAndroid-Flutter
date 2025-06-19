@@ -81,7 +81,7 @@ class RequestRepository {
   getUserInfo({Success<UserEntity>? success, Fail? fail}) {
     Request.get<dynamic>(
       RequestApi.apiUserInfo,
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         if (success != null) {
@@ -111,7 +111,7 @@ class RequestRepository {
     var api = isCollect ? RequestApi.apiUnCollect : RequestApi.apiCollect;
     Request.post<dynamic>(
       api.replaceFirst(RegExp('id'), '$id'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         if (success != null) {
@@ -137,7 +137,7 @@ class RequestRepository {
   }) {
     Request.get<dynamic>(
       RequestApi.apiProject.replaceFirst(RegExp('page'), '$page'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ProjectPage pageData = ProjectPage.fromJson(data);
@@ -163,7 +163,7 @@ class RequestRepository {
   rankingPoints(int page, {SuccessOver<List<Ranking>>? success, Fail? fail}) {
     Request.get<dynamic>(
       RequestApi.apiRanking.replaceFirst(RegExp('page'), '$page'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ///先解析外层分页
@@ -192,7 +192,7 @@ class RequestRepository {
   pointsDetail(int page, {SuccessOver<List<Points>>? success, Fail? fail}) {
     Request.get<dynamic>(
       RequestApi.apiPoints.replaceFirst(RegExp('page'), '$page'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ///先解析外层分页
@@ -226,7 +226,7 @@ class RequestRepository {
   }) {
     Request.get<dynamic>(
       RequestApi.apiCollectDetail.replaceFirst(RegExp('page'), '${page - 1}'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ProjectPage pageData = ProjectPage.fromJson(data);
@@ -249,7 +249,7 @@ class RequestRepository {
   exitLogin({Success<bool>? success, Fail? fail}) {
     Request.post<dynamic>(
       RequestApi.apiLogout,
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         if (success != null) {
@@ -274,7 +274,7 @@ class RequestRepository {
   }) {
     Request.get<dynamic>(
       RequestApi.apiAsk.replaceFirst(RegExp('page'), '$page'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ProjectPage pageData = ProjectPage.fromJson(data);
@@ -304,7 +304,7 @@ class RequestRepository {
   }) {
     Request.get<dynamic>(
       RequestApi.apiSquare.replaceFirst(RegExp('page'), '${page - 1}'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ProjectPage pageData = ProjectPage.fromJson(data);
@@ -327,7 +327,7 @@ class RequestRepository {
   getBanner({Success<List<Banners>>? success, Fail? fail}) {
     Request.get<List<dynamic>>(
       RequestApi.apiBanner,
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         if (success != null) {
@@ -349,7 +349,7 @@ class RequestRepository {
   getSearchHotWord({Success<List<HotWord>>? success, Fail? fail}) {
     Request.get<List<dynamic>>(
       RequestApi.apiHotWord,
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         if (success != null) {
@@ -410,7 +410,7 @@ class RequestRepository {
   }) {
     Request.get<dynamic>(
       RequestApi.apiHome.replaceFirst(RegExp('page'), '${page - 1}'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ProjectPage pageData = ProjectPage.fromJson(data);
@@ -433,7 +433,7 @@ class RequestRepository {
   getWechatPublic({Success<List<WechatPublic>>? success, Fail? fail}) {
     Request.get<List<dynamic>>(
       RequestApi.apiWechatPublic,
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         if (success != null) {
@@ -491,7 +491,7 @@ class RequestRepository {
   }) {
     Request.get<dynamic>(
       RequestApi.apiShareArticleList.replaceFirst(RegExp('page'), '$page'),
-      {},
+      <String, dynamic>{},
       dialog: false,
       success: (data) {
         ProjectPage pageData = ProjectPage.fromJson(data['shareArticles']);
