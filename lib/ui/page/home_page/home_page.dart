@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
-import 'package:wan_android_flutter/ui/dialog/dialog_share_article.dart';
+import 'package:wan_android_flutter/ui/dialog/dialog.dart';
 import 'package:wan_android_flutter/ui/page/complex_module/complex_page/complex_page.dart';
 import 'package:wan_android_flutter/ui/page/my_page/my_controller.dart';
 import 'package:wan_android_flutter/ui/page/my_page/my_page.dart';
@@ -39,7 +40,11 @@ class HomeTabOptionsState extends State<HomePage>
             value.text!.isNotEmpty &&
             (value.text!.startsWith("https://") ||
                 value.text!.startsWith("http://"))) {
-          Get.dialog(ShareArticleDialog(url: value.text!));
+          SmartDialog.show(
+            builder: (BuildContext context) {
+              return ShareArticleDialog(url: value.text!);
+            },
+          );
         }
       });
     }

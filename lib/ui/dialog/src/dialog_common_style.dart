@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:wan_android_flutter/get/get.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
@@ -117,7 +116,7 @@ class CommonDialog extends StatelessWidget {
         flex: 1,
         child: TextButton(
           onPressed: () {
-            Get.dismiss();
+            SmartDialog.dismiss();
             if (tap != null) {
               tap();
             }

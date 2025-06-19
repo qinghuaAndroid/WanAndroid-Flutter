@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
+import 'package:wan_android_flutter/ui/dialog/dialog.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
 
 class FeedbackController extends BaseGetController {
@@ -43,9 +44,9 @@ class FeedbackController extends BaseGetController {
       return;
     }
     KeyboardUtils.hideKeyboard(context);
-    Get.showLoading();
+    BaseLoadingDialog.show();
     Future.delayed(const Duration(seconds: 2)).then((value) {
-      Get.dismiss();
+      BaseLoadingDialog.hide();
       ToastUtils.show(StringStyles.feedbackSuccess.tr);
       Navigate.pop();
     });

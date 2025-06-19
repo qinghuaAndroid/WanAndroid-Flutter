@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
-import 'package:wan_android_flutter/ui/dialog/dialog_share_appliction.dart';
+import 'package:wan_android_flutter/ui/dialog/dialog.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
@@ -178,7 +179,11 @@ class MyPage extends GetSaveView<MyController> {
                   text: StringStyles.homeShare.tr,
                   endColor: Colors.black45,
                   onTap: () {
-                    Get.dialog(ShareDialog(url: Constant.downloadUrl));
+                    SmartDialog.show(
+                      builder: (BuildContext context) {
+                        return ShareDialog(url: Constant.downloadUrl);
+                      },
+                    );
                   },
                 ),
 

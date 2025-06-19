@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:wan_android_flutter/model/src/request_result.dart';
-import 'package:wan_android_flutter/ui/dialog/app_loading_base_dailog.dart';
+import 'package:wan_android_flutter/ui/dialog/dialog.dart';
 import 'package:wan_android_flutter/utils/src/toast_util.dart';
 
 import 'http_request.dart';

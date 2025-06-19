@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/navigation_history_observer.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
           defaultTransition: Transition.fade,
           initialBinding: SplashBinding(),
           home: const SplashPage(),
+          builder: FlutterSmartDialog.init(),
         ),
       ),
     );

@@ -5,4 +5,5 @@ export 'src/logo_name_widget.dart';
 export 'src/over_scroll_behavior.dart';
 export 'src/pull_smart_refresher.dart';
 export 'src/ripple_widget.dart';
+export 'src/show_dialog.dart';
 export 'src/tool_bar.dart';
