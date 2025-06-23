@@ -133,7 +133,7 @@ class Messages extends Translations{
   @override
   Map<String, Map<String, String>> get keys =>{
     'zh_CN' :{
-      StringStyles.appName : '博时',
+      StringStyles.appName : 'WanAndroid',
       StringStyles.loading : '加载中...',
       StringStyles.loginAccountNameHint : '请输入账号名',
       StringStyles.loginAccountPwdHint : '请输入密码',
@@ -235,7 +235,7 @@ class Messages extends Translations{
       StringStyles.notSupportLikes : "暂不支持点赞哟~"
     },
     'zh_HK' :{
-      StringStyles.appName : '博時',
+      StringStyles.appName : 'WanAndroid',
       StringStyles.loading : '加載中...',
       StringStyles.loginAccountNameHint : '請輸入賬戶名',
       StringStyles.loginAccountPwdHint : '請輸入密碼',
@@ -337,7 +337,7 @@ class Messages extends Translations{
       StringStyles.notSupportLikes : "暫不支持點讚喲~"
     },
     'zh_TW' :{
-      StringStyles.appName : '博時',
+      StringStyles.appName : 'WanAndroid',
       StringStyles.loading : '加載中...',
       StringStyles.loginAccountNameHint : '請輸入賬戶名',
       StringStyles.loginAccountPwdHint : '請輸入密碼',
@@ -439,7 +439,7 @@ class Messages extends Translations{
       StringStyles.notSupportLikes : "暫不支持點讚喲~"
     },
     'en_US' : {
-      StringStyles.appName : 'BlogTime',
+      StringStyles.appName : 'WanAndroid',
       StringStyles.loading : 'Loading...',
       StringStyles.loginAccountNameHint : 'Please enter the account name',
       StringStyles.loginAccountPwdHint : 'Please enter the password',

@@ -7,6 +7,7 @@ class ColorStyle {
   static const color_B8C0D4 = Color(0xFFB8C0D4);
   static const color_1A2F51 = Color(0xFF1A2F51);
   static const color_24CF5F = Color(0xFF24CF5F);
+  static const color_00CAAE = Color(0xFF00CAAE);
   static const color_FBE240 = Color(0xFFFBE240);
   static const color_FFAE2E = Color(0xFFFFAE2E);
   static const color_FE8C28 = Color(0xFFFE8C28);
@@ -26,4 +27,5 @@ class ColorStyle {
   static const color_F8F9FC = Color(0xFFFCFCFC);
   static const color_EFF1F8 = Color(0xFFE7EBFA);
   static const color_FAFAFB = Color(0xFFFAFAFB);
+  static const color_999999 = Color(0xFF999999);
 }
