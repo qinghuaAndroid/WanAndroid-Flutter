@@ -126,11 +126,32 @@ class RequestRepository {
     );
   }
 
+  void requestTabModule({Success<List<ProjectTab>>? success, Fail? fail}) {
+    Request.get<List<dynamic>>(
+      RequestApi.apiTab,
+      <String, dynamic>{},
+      dialog: false,
+      success: (data) {
+        var list = data.map((e) {
+          return ProjectTab.fromJson(e);
+        }).toList();
+        if (success != null) {
+          success(list);
+        }
+      },
+      fail: (code, msg) {
+        if (fail != null) {
+          fail(code, msg);
+        }
+      },
+    );
+  }
+
   ///请求项目列表接口
   ///[id]文章ID
   /// [success] 请求成功回调
   /// [fail] 请求失败回调
-  requestTabModule(
+  requestProjects(
     int page, {
     SuccessOver<List<ProjectDetail>>? success,
     Fail? fail,
@@ -146,6 +167,30 @@ class RequestRepository {
         }).toList();
         if (success != null) {
           success(list, pageData.over);
+        }
+      },
+      fail: (code, msg) {
+        if (fail != null) {
+          fail(code, msg);
+        }
+      },
+    );
+  }
+
+  ///请求z知识体系接口
+  /// [success] 请求成功回调
+  /// [fail] 请求失败回调
+  requestSystems({Success<List<SystemEntity>>? success, Fail? fail}) {
+    Request.get<List<dynamic>>(
+      RequestApi.apiSystem,
+      <String, dynamic>{},
+      dialog: false,
+      success: (data) {
+        var list = data.map((e) {
+          return SystemEntity.fromJson(e);
+        }).toList();
+        if (success != null) {
+          success(list);
         }
       },
       fail: (code, msg) {
@@ -451,6 +496,36 @@ class RequestRepository {
     );
   }
 
+  ///获取微信公众号历史数据
+  getWxArticle(
+    String cid,
+    int page, {
+    SuccessOver<List<ProjectDetail>>? success,
+    Fail? fail,
+  }) {
+    Request.get<dynamic>(
+      RequestApi.apiWxArticle
+          .replaceFirst(RegExp('cid'), cid)
+          .replaceFirst(RegExp('page'), '$page'),
+      <String, dynamic>{},
+      dialog: false,
+      success: (data) {
+        ProjectPage pageData = ProjectPage.fromJson(data);
+        var list = pageData.datas.map((value) {
+          return ProjectDetail.fromJson(value);
+        }).toList();
+        if (success != null) {
+          success(list, pageData.over);
+        }
+      },
+      fail: (code, msg) {
+        if (fail != null) {
+          fail(code, msg);
+        }
+      },
+    );
+  }
+
   /// 分享文章到站点
   /// [title] 文章标题
   /// [link] 文章链接
@@ -503,6 +578,35 @@ class RequestRepository {
         }
         if (length != null) {
           length(pageData.total);
+        }
+      },
+      fail: (code, msg) {
+        if (fail != null) {
+          fail(code, msg);
+        }
+      },
+    );
+  }
+
+  ///导航数据
+  /// [success] 请求成功回调
+  /// [fail] 请求失败回调
+  navigationData({Success<List<Navigation>>? success, Fail? fail}) {
+    Request.get<List<dynamic>>(
+      RequestApi.apiNavi,
+      <String, dynamic>{},
+      dialog: false,
+      success: (data) {
+        var list = data.map((e) {
+          var navigation = Navigation.fromJson(e);
+          var list = navigation.articles.map((e){
+            return ProjectDetail.fromJson(e);
+          }).toList();
+          navigation.articles = list;
+          return navigation;
+        }).toList();
+        if (success != null) {
+          success(list);
         }
       },
       fail: (code, msg) {

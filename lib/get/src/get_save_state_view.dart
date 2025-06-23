@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 abstract class GetSaveView<T extends GetxController> extends StatefulWidget {
   const GetSaveView({super.key});
 
-  final String? tag = null;
+  get tag => null;
 
   T get controller => GetInstance().find<T>(tag: tag);
 
@@ -36,6 +36,7 @@ class GetSaveViewState<S extends GetxController> extends State<GetSaveView>
   Widget build(BuildContext context) {
     super.build(context);
     return GetBuilder<S>(
+      tag: widget.tag,
       id: widget.updateId,
       builder: (controller) {
         return widget.build(context);

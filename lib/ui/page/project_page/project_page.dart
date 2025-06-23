@@ -10,26 +10,26 @@ import 'widget/project_list_item.dart';
 /// @name : jhf
 /// @description :项目 View层
 class ProjectPage extends GetSaveView<ProjectController> {
-  const ProjectPage({super.key});
+  final String id;
+
+  @override
+  get tag => id;
+
+  const ProjectPage({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        top: true,
-        child: RefreshWidget<ProjectController>(
-          child: ListView.builder(
-            padding: EdgeInsets.zero,
-            shrinkWrap: true,
-            itemCount: controller.projectData.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ProjectListItem(controller.projectData[index], (value) {
-                controller.projectData[index].collect = value;
-              });
-            },
-          ),
-        ),
+    return RefreshWidget<ProjectController>(
+      tag: tag,
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        shrinkWrap: true,
+        itemCount: controller.projectData.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ProjectListItem(controller.projectData[index], (value) {
+            controller.projectData[index].collect = value;
+          });
+        },
       ),
     );
   }

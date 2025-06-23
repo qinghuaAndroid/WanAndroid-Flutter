@@ -1,4 +1,5 @@
 export 'src/android_channel.dart';
+export 'src/assets_util.dart';
 export 'src/constant.dart';
 export 'src/date_util.dart';
 export 'src/ext/refresher_extension.dart';

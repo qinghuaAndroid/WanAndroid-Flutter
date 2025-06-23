@@ -88,7 +88,7 @@ class RegisterController extends BaseGetController {
       rePassword,
       success: (data) {
         ToastUtils.show(StringStyles.registerSuccess.tr);
-        Navigate.cleanRouteAndPush(Routes.homePage);
+        Navigate.cleanRouteAndPush(Routes.mainPage);
       },
     );
   }

@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/src/get_auth_middleware.dart';
-import 'package:wan_android_flutter/ui/page/home_page/home_binding.dart';
-import 'package:wan_android_flutter/ui/page/home_page/home_page.dart';
 import 'package:wan_android_flutter/ui/page/login_page/login_binding.dart';
 import 'package:wan_android_flutter/ui/page/login_page/login_page.dart';
+import 'package:wan_android_flutter/ui/page/main_page/main_binding.dart';
+import 'package:wan_android_flutter/ui/page/main_page/main_page.dart';
 import 'package:wan_android_flutter/ui/page/register_page/register_binding.dart';
 import 'package:wan_android_flutter/ui/page/register_page/register_page.dart';
 import 'package:wan_android_flutter/ui/page/search_page/search_binding.dart';
@@ -47,7 +47,7 @@ abstract class Routes {
   static const String registerPage = '/register';
 
   ///主页
-  static const String homePage = '/home';
+  static const String mainPage = '/main';
 
   ///webView
   static const String webViewPage = '/webView';
@@ -111,9 +111,9 @@ abstract class Routes {
       binding: WebViewBinding(),
     ),
     GetPage(
-      name: homePage,
-      page: () => const HomePage(),
-      binding: HomeBinding(),
+      name: mainPage,
+      page: () => const MainPage(),
+      binding: MainBinding(),
       middlewares: [AuthMiddleware()],
     ),
 
@@ -152,10 +152,7 @@ abstract class Routes {
       page: () => const SettingPage(),
       binding: SettingBinding(),
     ),
-    GetPage(
-      name: settingLanguagePage,
-      page: () => const SettingLanguagePage(),
-    ),
+    GetPage(name: settingLanguagePage, page: () => const SettingLanguagePage()),
     GetPage(
       name: collectPage,
       page: () => const CollectPage(),

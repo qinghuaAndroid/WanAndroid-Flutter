@@ -17,7 +17,7 @@ class SplashAnimWidget extends GetCommonView<SplashController> {
   Widget build(BuildContext context) {
     return AnimatedOpacity(
       onEnd: () {
-        Navigate.popAndPush(Routes.homePage);
+        Navigate.popAndPush(Routes.mainPage);
       },
       opacity: controller.opacityLevel,
       duration: const Duration(milliseconds: 2000),

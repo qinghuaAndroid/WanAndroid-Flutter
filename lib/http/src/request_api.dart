@@ -16,6 +16,8 @@ class RequestApi{
   static const String apiUserInfo = 'user/lg/userinfo/json';
   ///首页Tab栏接口
   static const String apiTab = 'project/tree/json';
+  ///知识体系
+  static const String apiSystem = 'tree/json';
   ///项目接口
   static const String apiProject = 'article/listproject/page/json';
   ///积分排行榜接口
@@ -44,10 +46,14 @@ class RequestApi{
   static const String apiHome = 'article/list/page/json';
   ///公众号列表
   static const String apiWechatPublic = 'wxarticle/chapters/json';
+  ///公众号列表
+  static const String apiWxArticle = 'wxarticle/list/cid/page/json';
   ///分享文章到站点
   static const String apiAddArticle = 'lg/user_article/add/json';
   ///获取分享的文章列表
   static const String apiShareArticleList = 'user/lg/private_articles/page/json';
+  ///导航数据
+  static const String apiNavi = 'navi/json';
 }
 
 

@@ -1,107 +1,84 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:get/get.dart';
-import 'package:wan_android_flutter/res/res.dart';
-import 'package:wan_android_flutter/ui/dialog/dialog.dart';
-import 'package:wan_android_flutter/ui/page/complex_module/complex_page/complex_page.dart';
-import 'package:wan_android_flutter/ui/page/my_page/my_controller.dart';
-import 'package:wan_android_flutter/ui/page/my_page/my_page.dart';
-import 'package:wan_android_flutter/ui/page/project_page/project_page.dart';
+import 'package:wan_android_flutter/get/get.dart';
+import 'package:wan_android_flutter/routes/routes.dart';
+import 'package:wan_android_flutter/utils/utils.dart';
+import 'package:wan_android_flutter/widgets/widgets.dart';
 
-import 'widget/home_tab_title.dart';
+import 'home_controller.dart';
+import 'widget/banner_widget.dart';
+import 'widget/home_article_item.dart';
 
 /// @class : HomePage
-/// @date : 2021/08/19
+/// @date : 2021/08/23
 /// @name : jhf
-/// @description :主页 View层
-class HomePage extends StatefulWidget {
+/// @description :首页 View层
+class HomePage extends GetSaveView<HomeController> {
   const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => HomeTabOptionsState();
-}
-
-class HomeTabOptionsState extends State<HomePage>
-    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
-  ///控制器
-  TabController? tabController;
-
-  ///监听应用从后台切换到前台时，读取粘贴板中的数据，验证URL，已保存分享
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-    if (state == AppLifecycleState.resumed) {
-      var clipboardData = Clipboard.getData(Clipboard.kTextPlain);
-      clipboardData.then((value) {
-        debugPrint("clipboardData=> ${value?.text}");
-        if (value != null &&
-            value.text != null &&
-            value.text!.isNotEmpty &&
-            (value.text!.startsWith("https://") ||
-                value.text!.startsWith("http://"))) {
-          SmartDialog.show(
-            builder: (BuildContext context) {
-              return ShareArticleDialog(url: value.text!);
-            },
-          );
-        }
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    tabController = TabController(length: 3, vsync: this);
-    WidgetsBinding.instance.addObserver(this);
-
-    ///监听TabBar切换事件
-    tabController?.addListener(() {
-      var index = tabController?.index;
-
-      ///修复执行2次的BUG,增加条件
-      if (tabController?.index == tabController?.animation?.value) {
-        if (index == tabController!.length - 1) {
-          Get.find<MyController>()
-            ..notifyUserInfo()
-            ..notifyBrowseHistory()
-            ..notifyShareArticle();
-        }
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    tabController?.dispose();
-    WidgetsBinding.instance.removeObserver(this);
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorStyle.color_F8F9FC,
-      body: TabBarView(
-        controller: tabController,
-        children: const [ComplexPage(), ProjectPage(), MyPage()],
-      ),
-      bottomNavigationBar: Container(
-        height: 65,
-        decoration: ShadowStyle.white12TopSpread4Blur10(radius: 0),
-        child: TabBar(
-          indicator: const BoxDecoration(),
-          labelColor: ColorStyle.color_24CF5F,
-          unselectedLabelColor: ColorStyle.color_B8C0D4,
-          controller: tabController,
-          tabs: [
-            TabTitleIcon(
-              title: StringStyles.homeComplex.tr,
-              icon: Icons.turned_in,
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        top: true,
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                color: Colors.white,
+                child: RefreshWidget<HomeController>(
+                  child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    itemCount: controller.projectData.length + 1,
+                    itemBuilder: (BuildContext context, int index) {
+                      ///将Banner装载到ListView中
+                      if (index == 0) {
+                        return Container(
+                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                          width: double.infinity,
+                          height: 140,
+                          child: BannerWidget(
+                            controller.banner,
+                            height: 140,
+                            onTap: (index) {
+                              if (index == 0) {
+                                Navigate.push(Routes.rankingPage);
+                              } else {
+                                WebUtil.toWebPageBanners(
+                                  controller.banner[index],
+                                );
+                              }
+                            },
+                          ),
+                        );
+                      } else {
+                        ///计算当前显示的真实索引
+                        var newIndex = index - 1;
+
+                        ///item列表数据展示
+                        return Material(
+                          color: Colors.transparent,
+                          child: Ripple(
+                            onTap: () => WebUtil.toWebPage(
+                              controller.projectData[newIndex],
+                              onResult: (value) {
+                                controller.projectData[newIndex].collect =
+                                    value;
+                              },
+                            ),
+                            child: HomeArticleItem(
+                              item: controller.projectData[newIndex],
+                              index: newIndex,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
             ),
-            TabTitleIcon(title: StringStyles.homeProject.tr, icon: Icons.send),
-            TabTitleIcon(title: StringStyles.homeMy.tr, icon: Icons.person),
           ],
         ),
       ),

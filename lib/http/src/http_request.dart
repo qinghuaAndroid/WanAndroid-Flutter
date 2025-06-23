@@ -60,7 +60,7 @@ class HttpRequest {
       _dio = Dio(options);
       var persistCookieJar = await prepareJar();
       _dio?.interceptors.add(CookieManager(persistCookieJar));
-      _dio?.interceptors.add(PrettyDioLogger());
+      // _dio?.interceptors.add(PrettyDioLogger());
       // 重试拦截器
       _dio?.interceptors.add(
         RetryInterceptor(

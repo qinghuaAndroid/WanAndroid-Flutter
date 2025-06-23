@@ -9,6 +9,11 @@ import 'package:wan_android_flutter/widgets/widgets.dart';
 /// @name : jhf
 /// @description :项目 控制器层
 class ProjectController extends BaseGetPageController {
+
+  late TagType tagType;
+
+  late String id;
+
   List<ProjectDetail> projectData = [];
 
   ///请求积分明细
@@ -17,7 +22,9 @@ class ProjectController extends BaseGetPageController {
     RefreshController controller, {
     Refresh refresh = Refresh.first,
   }) {
-    request.requestTabModule(
+    print('=====================requestData-1: $id, $page');
+    request.getWxArticle(
+      id,
       page,
       success: (data, over) {
         RefreshExtension.onSuccess(controller, refresh, over);
@@ -27,6 +34,7 @@ class ProjectController extends BaseGetPageController {
           projectData.clear();
         }
         projectData.addAll(data);
+        print('=====================requestData-2: ${projectData.length}');
         showSuccess(projectData);
         update();
       },

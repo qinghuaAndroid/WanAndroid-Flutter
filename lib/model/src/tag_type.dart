@@ -1,0 +1,4 @@
+enum TagType {
+  project,
+  publicNumber,
+}

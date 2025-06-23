@@ -51,7 +51,7 @@ class LoginController extends BaseGetController {
       password,
       success: (data) {
         ToastUtils.show(StringStyles.loginSuccess.tr);
-        Navigate.popAndPush(Routes.homePage);
+        Navigate.popAndPush(Routes.mainPage);
       },
     );
   }

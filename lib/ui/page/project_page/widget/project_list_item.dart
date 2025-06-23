@@ -86,15 +86,17 @@ class ProjectListItem extends StatelessWidget {
               ),
             ),
             Box.hBox5,
-            ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Image.network(
-                detail.envelopePic,
-                fit: BoxFit.fill,
-                width: 72,
-                height: 128,
-              ),
-            ),
+            detail.envelopePic.isNotEmpty
+                ? ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.network(
+                      detail.envelopePic,
+                      fit: BoxFit.fill,
+                      width: 72,
+                      height: 128,
+                    ),
+                  )
+                : SizedBox(),
           ],
         ),
       ),

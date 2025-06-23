@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/navigation_history_observer.dart';
 
 import 'app/app_theme.dart';
+import 'generated/l10n.dart';
 import 'routes/routes.dart';
 import 'ui/page/splash_page/splash_binding.dart';
 import 'ui/page/splash_page/splash_page.dart';
 import 'utils/src/injection_init.dart';
-import 'utils/src/locale_util.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +24,7 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
   await Injection.init();
-  runApp(MyApp());
+  runApp(MultiProvider(providers: [LocaleProvider()], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -49,11 +52,19 @@ class MyApp extends StatelessWidget {
           //主题颜色
           translations: Messages(),
           //国际化支持-来源配置
-          locale: LocaleUtil.getDefault(),
+          supportedLocales: S.delegate.supportedLocales,
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          // 当前语言
+          locale: Provider.of<LocaleNotifier>(context).locale,
           //国际化支持-默认语言
-          fallbackLocale: const Locale('en', 'US'),
+          fallbackLocale: const Locale('zh', 'CN'),
           //国际化支持-备用语言
-          defaultTransition: Transition.fade,
+          defaultTransition: Transition.native,
           initialBinding: SplashBinding(),
           home: const SplashPage(),
           builder: FlutterSmartDialog.init(),

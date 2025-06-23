@@ -28,6 +28,7 @@ enum Refresh {
 class RefreshWidget<T extends BaseGetPageController> extends StatefulWidget {
   const RefreshWidget({
     super.key,
+    this.tag,
     this.enablePullUp = true,
     this.enablePullDown = true,
     this.onRefresh,
@@ -35,7 +36,7 @@ class RefreshWidget<T extends BaseGetPageController> extends StatefulWidget {
     required this.child,
   });
 
-  final String? tag = null;
+  final String? tag;
 
   ///获取BaseGetController子类对象，在GetX中，任何BaseGetController都可以通过此方法获取
   ///但是必须是没有dispose的Controller

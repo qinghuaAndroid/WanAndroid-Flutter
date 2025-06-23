@@ -40,6 +40,11 @@ class Styles {
     fontSize: 11,
     height: 1.1,
   );
+  static const TextStyle style_9F9EA6_12 = TextStyle(
+    color: Color(0xff9F9EA6),
+    fontSize: 12,
+    height: 1.1,
+  );
   static const TextStyle style_9F9EA6_14 = TextStyle(
     color: Color(0xff9F9EA6),
     fontSize: 14,
