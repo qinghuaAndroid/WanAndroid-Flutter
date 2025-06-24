@@ -6,7 +6,6 @@ import 'package:wan_android_flutter/ui/page/tabs_page/tabs_controller.dart';
 
 import '../project_page/project_page.dart';
 
-
 class TabsPage extends StatefulWidget {
   final TagType tagType;
 
@@ -45,7 +44,7 @@ class _TabsPageState extends State<TabsPage>
       tag: tag,
       builder: (controller) {
         tabController = TabController(
-          length: widget.tagType == TagType.publicNumber
+          length: widget.tagType == TagType.publicAccount
               ? controller.wechatPublic.length
               : controller.projectTabs.length,
           vsync: this,
@@ -73,23 +72,7 @@ class _TabsPageState extends State<TabsPage>
 
   TabBar _tabBar(TabController? tabController) {
     return TabBar(
-      tabs: widget.tagType == TagType.publicNumber
-          ? (controller.wechatPublic).map((model) {
-              return Tab(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Text(model.name),
-                ),
-              );
-            }).toList()
-          : (controller.projectTabs).map((model) {
-              return Tab(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Text(model.name),
-                ),
-              );
-            }).toList(),
+      tabs: _tabs(),
       controller: tabController,
       isScrollable: true,
       indicatorColor: Colors.white,
@@ -103,8 +86,28 @@ class _TabsPageState extends State<TabsPage>
     );
   }
 
+  List<Tab> _tabs() {
+    return widget.tagType == TagType.publicAccount
+        ? (controller.wechatPublic).map((model) {
+            return Tab(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Text(model.name),
+              ),
+            );
+          }).toList()
+        : (controller.projectTabs).map((model) {
+            return Tab(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Text(model.name),
+              ),
+            );
+          }).toList();
+  }
+
   List<Widget> _createTabsPage() {
-    return widget.tagType == TagType.publicNumber
+    return widget.tagType == TagType.publicAccount
         ? (controller.wechatPublic).map((model) {
             final controller = ProjectController();
             controller.tagType = widget.tagType;

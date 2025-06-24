@@ -9,11 +9,16 @@ import 'package:wan_android_flutter/utils/utils.dart';
 /// @name : jhf
 /// @description :项目列表item widget
 class ProjectListItem extends StatelessWidget {
+  final TagType tagType;
   final ProjectDetail detail;
-
   final Function(bool) onResult;
 
-  const ProjectListItem(this.detail, this.onResult, {super.key});
+  const ProjectListItem({
+    super.key,
+    required this.tagType,
+    required this.detail,
+    required this.onResult,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,65 +34,65 @@ class ProjectListItem extends StatelessWidget {
           ),
         ),
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
+        child: tagType == TagType.project
+            ? Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ///标题
-                  Text(
-                    detail.title,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: Styles.style_black_16_bold,
-                  ),
-                  Box.vBox10,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ///标题
+                        Text(
+                          detail.title,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: Styles.style_black_16_bold,
+                        ),
+                        Box.vBox10,
 
-                  ///部分内容
-                  Text(
-                    detail.desc,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                    style: Styles.style_6A6969_14,
-                  ),
-                  Box.vBox10,
+                        ///部分内容
+                        Text(
+                          detail.desc,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                          style: Styles.style_6A6969_14,
+                        ),
+                        Box.vBox10,
 
-                  ///作者
-                  Row(
-                    children: [
-                      SvgPicture.asset(R.assetsImagesProgram, width: 16),
-                      Box.hBox10,
-                      Text(
-                        detail.author,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: Styles.style_6A6969_14,
-                      ),
-                    ],
-                  ),
-                  Box.vBox10,
+                        ///作者
+                        Row(
+                          children: [
+                            SvgPicture.asset(R.assetsImagesProgram, width: 16),
+                            Box.hBox10,
+                            Text(
+                              detail.author,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: Styles.style_6A6969_14,
+                            ),
+                          ],
+                        ),
+                        Box.vBox10,
 
-                  ///发布时间
-                  Row(
-                    children: [
-                      SvgPicture.asset(R.assetsImagesDateTime, width: 16),
-                      Box.hBox10,
-                      Text(
-                        detail.niceDate,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        style: Styles.style_6A6969_14,
-                      ),
-                    ],
+                        ///发布时间
+                        Row(
+                          children: [
+                            SvgPicture.asset(R.assetsImagesDateTime, width: 16),
+                            Box.hBox10,
+                            Text(
+                              detail.niceDate,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: Styles.style_6A6969_14,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
-            ),
-            Box.hBox5,
-            detail.envelopePic.isNotEmpty
-                ? ClipRRect(
+                  Box.hBox5,
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(5),
                     child: Image.network(
                       detail.envelopePic,
@@ -95,10 +100,50 @@ class ProjectListItem extends StatelessWidget {
                       width: 72,
                       height: 128,
                     ),
-                  )
-                : SizedBox(),
-          ],
-        ),
+                  ),
+                ],
+              )
+            : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ///作者
+                Row(
+                  children: [
+                    SvgPicture.asset(R.assetsImagesProgram, width: 16),
+                    Box.hBox10,
+                    Text(
+                      detail.author,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: Styles.style_6A6969_14,
+                    ),
+                  ],
+                ),
+                Box.vBox10,
+                ///标题
+                Text(
+                  detail.title,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: Styles.style_black_16_bold,
+                ),
+                Box.vBox10,
+                ///发布时间
+                Row(
+                  children: [
+                    SvgPicture.asset(R.assetsImagesDateTime, width: 16),
+                    Box.hBox10,
+                    Text(
+                      detail.niceDate,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: Styles.style_6A6969_14,
+                    ),
+                  ],
+                ),
+                Box.vBox10,
+              ],
+            ),
       ),
     );
   }

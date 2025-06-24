@@ -11,7 +11,7 @@ class TabsController extends BaseGetController {
   List<ProjectTab> projectTabs = [];
 
   void requestData() {
-    tagType == TagType.publicNumber ? getWechatPublic() : requestTabModule();
+    tagType == TagType.publicAccount ? getWechatPublic() : requestTabModule();
   }
 
   void getWechatPublic() {

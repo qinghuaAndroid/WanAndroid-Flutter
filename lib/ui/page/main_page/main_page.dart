@@ -120,7 +120,7 @@ class MainTabOptionsState extends State<MainPage>
         children: const [
           HomePage(),
           SystemPage(),
-          TabsPage(tagType: TagType.publicNumber),
+          TabsPage(tagType: TagType.publicAccount),
           NavigationPage(),
           TabsPage(tagType: TagType.project),
         ],

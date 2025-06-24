@@ -17,7 +17,7 @@ class MainBinding extends Bindings {
     Get.lazyPut(() => MainController());
     Get.lazyPut(() => HomeController());
     Get.lazyPut(() => SystemController());
-    Get.lazyPut(() => TabsController(), tag: TagType.publicNumber.toString());
+    Get.lazyPut(() => TabsController(), tag: TagType.publicAccount.toString());
     Get.lazyPut(() => TabsController(), tag: TagType.project.toString());
     Get.lazyPut(() => NavigationController());
   }

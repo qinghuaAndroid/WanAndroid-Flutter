@@ -26,9 +26,13 @@ class ProjectPage extends GetSaveView<ProjectController> {
         shrinkWrap: true,
         itemCount: controller.projectData.length,
         itemBuilder: (BuildContext context, int index) {
-          return ProjectListItem(controller.projectData[index], (value) {
-            controller.projectData[index].collect = value;
-          });
+          return ProjectListItem(
+            tagType: controller.tagType,
+            detail: controller.projectData[index],
+            onResult: (value) {
+              controller.projectData[index].collect = value;
+            },
+          );
         },
       ),
     );
