@@ -114,7 +114,60 @@ class MainTabOptionsState extends State<MainPage>
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(color: Colors.blue),
+              child: Column(
+                children: [
+                  Container(
+                    width: 80.w,
+                    height: 80.w,
+                    margin: EdgeInsetsDirectional.only(bottom: 5.w),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40.w)),
+                      border: Border.all(color: Colors.white, width: 2.w),
+                    ),
+                    child: ClipOval(
+                      child: Image.asset(
+                        assetImage('ic_default_avatar'),
+                        width: 80.w,
+                        height: 80.w,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    mainController.userInfo.nickname,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+              },
+            ),
+          ],
+        ),
+      ),
       body: TabBarView(
         controller: tabController,
         children: const [
