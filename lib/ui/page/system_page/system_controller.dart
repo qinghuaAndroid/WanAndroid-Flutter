@@ -15,9 +15,12 @@ class SystemController extends BaseGetController {
     request.requestSystems(
       success: (data) {
         systems.addAll(data);
+        showSuccess(data);
         update();
       },
-      fail: (code, msg) {},
+      fail: (code, msg) {
+        showError();
+      },
     );
   }
 }

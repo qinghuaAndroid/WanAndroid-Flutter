@@ -4,7 +4,7 @@ import 'package:wan_android_flutter/model/models.dart';
 
 class NavigationController extends BaseGetController {
   ///知识体系
-  List<Navigation> navigations = [];
+  List<Navigation> navigationList = [];
 
   @override
   void onInit() {
@@ -15,8 +15,8 @@ class NavigationController extends BaseGetController {
   void requestData() {
     request.navigationData(
       success: (data) {
-        print('=========================NavigationController: ${navigations.length}');
-        navigations.addAll(data);
+        navigationList.addAll(data);
+        showSuccess(data);
         update();
       },
       fail: (code, msg) {},

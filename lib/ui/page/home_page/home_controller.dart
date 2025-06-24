@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
@@ -70,11 +68,11 @@ class HomeController extends BaseGetPageController {
         banner.addAll(data);
 
         ///预缓存banner图片
-        data.forEach((element) {
+        for (var element in data) {
           if (Get.context != null) {
             precacheImage(NetworkImage(element.imagePath), Get.context!);
           }
-        });
+        }
         update();
       },
     );

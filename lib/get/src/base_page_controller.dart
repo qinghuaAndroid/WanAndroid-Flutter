@@ -11,8 +11,6 @@ import 'get_controller_inject.dart';
 /// 如果没有分页，请使用BaseGetController
 /// 此页面暂时不对数据进行处理，不放置List在此处，因为当前已经很简洁了，不需要绑定[RefreshWidget]进行节省代码
 abstract class BaseGetPageController extends BaseGetController {
-  ///加载状态  0加载中 1加载成功 2加载数据为空 3加载失败
-  var loadState = 0.obs;
 
   ///当前页数
   int page = 1;
@@ -22,21 +20,6 @@ abstract class BaseGetPageController extends BaseGetController {
 
   /// 刷新控制器
   RefreshController? controller;
-
-  ///加载成功，是否显示空页面
-  showSuccess(List suc) {
-    loadState.value = suc.isNotEmpty ? 1 : 2;
-  }
-
-  ///加载失败,显示失败页面
-  showError() {
-    loadState.value = 3;
-  }
-
-  ///重新加载
-  showLoading() {
-    loadState.value = 0;
-  }
 
   ///预留初次加载，注意只供上拉下拉使用
   initPullLoading(RefreshController controller) {
