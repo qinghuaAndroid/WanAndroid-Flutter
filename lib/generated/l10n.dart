@@ -50,100 +50,110 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `玩Android`
+  /// `A professional Android community`
+  String get slogan {
+    return Intl.message(
+      'A professional Android community',
+      name: 'slogan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Play Android`
   String get tab_1 {
     return Intl.message(
-      '玩Android',
+      'Play Android',
       name: 'tab_1',
       desc: '',
       args: [],
     );
   }
 
-  /// `知识体系`
+  /// `Knowledge System`
   String get tab_2 {
     return Intl.message(
-      '知识体系',
+      'Knowledge System',
       name: 'tab_2',
       desc: '',
       args: [],
     );
   }
 
-  /// `公众号`
+  /// `Public Account`
   String get tab_3 {
     return Intl.message(
-      '公众号',
+      'Public Account',
       name: 'tab_3',
       desc: '',
       args: [],
     );
   }
 
-  /// `导航`
+  /// `navigation`
   String get tab_4 {
     return Intl.message(
-      '导航',
+      'navigation',
       name: 'tab_4',
       desc: '',
       args: [],
     );
   }
 
-  /// `项目`
+  /// `project`
   String get tab_5 {
     return Intl.message(
-      '项目',
+      'project',
       name: 'tab_5',
       desc: '',
       args: [],
     );
   }
 
-  /// `我的收藏`
+  /// `My Collection`
   String get nav_my_collect {
     return Intl.message(
-      '我的收藏',
+      'My Collection',
       name: 'nav_my_collect',
       desc: '',
       args: [],
     );
   }
 
-  /// `系统设置`
+  /// `System Settings`
   String get nav_setting {
     return Intl.message(
-      '系统设置',
+      'System Settings',
       name: 'nav_setting',
       desc: '',
       args: [],
     );
   }
 
-  /// `关于我们`
+  /// `about Us`
   String get nav_about_us {
     return Intl.message(
-      '关于我们',
+      'about Us',
       name: 'nav_about_us',
       desc: '',
       args: [],
     );
   }
 
-  /// `退出登录`
+  /// `Log out`
   String get nav_logout {
     return Intl.message(
-      '退出登录',
+      'Log out',
       name: 'nav_logout',
       desc: '',
       args: [],
     );
   }
 
-  /// `夜间模式`
+  /// `Night Mode`
   String get nav_night_mode {
     return Intl.message(
-      '夜间模式',
+      'Night Mode',
       name: 'nav_night_mode',
       desc: '',
       args: [],
@@ -160,40 +170,40 @@ class S {
     );
   }
 
-  /// `广场`
+  /// `square`
   String get nav_square {
     return Intl.message(
-      '广场',
+      'square',
       name: 'nav_square',
       desc: '',
       args: [],
     );
   }
 
-  /// `我的积分`
+  /// `My Points`
   String get nav_my_score {
     return Intl.message(
-      '我的积分',
+      'My Points',
       name: 'nav_my_score',
       desc: '',
       args: [],
     );
   }
 
-  /// `轻松一下`
+  /// `Relax`
   String get nav_girl {
     return Intl.message(
-      '轻松一下',
+      'Relax',
       name: 'nav_girl',
       desc: '',
       args: [],
     );
   }
 
-  /// `问答`
+  /// `Questions`
   String get nav_question {
     return Intl.message(
-      '问答',
+      'Questions',
       name: 'nav_question',
       desc: '',
       args: [],
@@ -210,20 +220,20 @@ class S {
     );
   }
 
-  /// `等级:`
+  /// `grade:`
   String get nav_grade {
     return Intl.message(
-      '等级:',
+      'grade:',
       name: 'nav_grade',
       desc: '',
       args: [],
     );
   }
 
-  /// `排名:`
+  /// `Ranking:`
   String get nav_rank {
     return Intl.message(
-      '排名:',
+      'Ranking:',
       name: 'nav_rank',
       desc: '',
       args: [],
@@ -238,6 +248,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'zh', countryCode: 'CN'),
+      Locale.fromSubtags(languageCode: 'zh', countryCode: 'HK'),
+      Locale.fromSubtags(languageCode: 'zh', countryCode: 'TW'),
     ];
   }
 

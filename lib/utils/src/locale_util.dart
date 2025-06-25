@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/model/models.dart';
+import 'package:wan_android_flutter/provider/provider.dart';
 
 import 'save/sp_util.dart';
 
@@ -19,6 +21,7 @@ class LocaleUtil {
     }
     if (locale != null) {
       Get.updateLocale(locale);
+      Provider.of<LocaleNotifier>(Get.context!).setLocale(locale);
     }
   }
 

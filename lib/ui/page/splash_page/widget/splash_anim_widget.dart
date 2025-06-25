@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wan_android_flutter/generated/l10n.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
@@ -23,10 +24,10 @@ class SplashAnimWidget extends GetCommonView<SplashController> {
       opacity: controller.opacityLevel,
       duration: const Duration(milliseconds: 2000),
       child: Container(
-        margin: EdgeInsets.only(top: 170.h),
         alignment: Alignment.center,
         child: Column(
           children: [
+            Expanded(flex: 2, child: SizedBox()),
             Image.asset(assetImage('logo_green'), width: 100.w, height: 100.w),
             Padding(
               padding: EdgeInsets.only(top: 6.w),
@@ -41,13 +42,14 @@ class SplashAnimWidget extends GetCommonView<SplashController> {
             Padding(
               padding: EdgeInsets.only(top: 4.w),
               child: Text(
-                "一个专业的Android社区",
+                S.of(context).slogan,
                 style: TextStyle(
                   color: ColorStyle.color_999999,
                   fontSize: 15.sp,
                 ),
               ),
             ),
+            Expanded(flex: 3, child: SizedBox()),
           ],
         ),
       ),

@@ -21,23 +21,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "nav_about_us": MessageLookupByLibrary.simpleMessage("关于我们"),
-        "nav_girl": MessageLookupByLibrary.simpleMessage("轻松一下"),
-        "nav_grade": MessageLookupByLibrary.simpleMessage("等级:"),
+        "nav_about_us": MessageLookupByLibrary.simpleMessage("about Us"),
+        "nav_girl": MessageLookupByLibrary.simpleMessage("Relax"),
+        "nav_grade": MessageLookupByLibrary.simpleMessage("grade:"),
         "nav_id": MessageLookupByLibrary.simpleMessage("ID:"),
-        "nav_logout": MessageLookupByLibrary.simpleMessage("退出登录"),
-        "nav_my_collect": MessageLookupByLibrary.simpleMessage("我的收藏"),
-        "nav_my_score": MessageLookupByLibrary.simpleMessage("我的积分"),
-        "nav_night_mode": MessageLookupByLibrary.simpleMessage("夜间模式"),
-        "nav_question": MessageLookupByLibrary.simpleMessage("问答"),
-        "nav_rank": MessageLookupByLibrary.simpleMessage("排名:"),
-        "nav_setting": MessageLookupByLibrary.simpleMessage("系统设置"),
-        "nav_square": MessageLookupByLibrary.simpleMessage("广场"),
+        "nav_logout": MessageLookupByLibrary.simpleMessage("Log out"),
+        "nav_my_collect": MessageLookupByLibrary.simpleMessage("My Collection"),
+        "nav_my_score": MessageLookupByLibrary.simpleMessage("My Points"),
+        "nav_night_mode": MessageLookupByLibrary.simpleMessage("Night Mode"),
+        "nav_question": MessageLookupByLibrary.simpleMessage("Questions"),
+        "nav_rank": MessageLookupByLibrary.simpleMessage("Ranking:"),
+        "nav_setting": MessageLookupByLibrary.simpleMessage("System Settings"),
+        "nav_square": MessageLookupByLibrary.simpleMessage("square"),
         "nav_todo": MessageLookupByLibrary.simpleMessage("TODO"),
-        "tab_1": MessageLookupByLibrary.simpleMessage("玩Android"),
-        "tab_2": MessageLookupByLibrary.simpleMessage("知识体系"),
-        "tab_3": MessageLookupByLibrary.simpleMessage("公众号"),
-        "tab_4": MessageLookupByLibrary.simpleMessage("导航"),
-        "tab_5": MessageLookupByLibrary.simpleMessage("项目")
+        "slogan": MessageLookupByLibrary.simpleMessage(
+            "A professional Android community"),
+        "tab_1": MessageLookupByLibrary.simpleMessage("Play Android"),
+        "tab_2": MessageLookupByLibrary.simpleMessage("Knowledge System"),
+        "tab_3": MessageLookupByLibrary.simpleMessage("Public Account"),
+        "tab_4": MessageLookupByLibrary.simpleMessage("navigation"),
+        "tab_5": MessageLookupByLibrary.simpleMessage("project")
       };
 }
