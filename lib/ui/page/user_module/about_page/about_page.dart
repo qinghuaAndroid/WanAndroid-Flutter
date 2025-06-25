@@ -13,7 +13,7 @@ import 'about_controller.dart';
 /// @name : jhf
 /// @description :关于我们 View层
 class AboutPage extends GetCommonView<AboutController> {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class AboutPage extends GetCommonView<AboutController> {
           children: [
             ToolBar(title: StringStyles.aboutTitle.tr),
             Box.vBox30,
-            Image.asset(R.assetsImagesApplication, width: 120),
+            Image.asset(assetImage('logo_green'), width: 120),
             Box.vBox12,
             Text(StringStyles.appName.tr, style: Styles.style_black_30),
             Box.vBox5,

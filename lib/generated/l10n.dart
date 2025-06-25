@@ -99,6 +99,136 @@ class S {
       args: [],
     );
   }
+
+  /// `我的收藏`
+  String get nav_my_collect {
+    return Intl.message(
+      '我的收藏',
+      name: 'nav_my_collect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `系统设置`
+  String get nav_setting {
+    return Intl.message(
+      '系统设置',
+      name: 'nav_setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `关于我们`
+  String get nav_about_us {
+    return Intl.message(
+      '关于我们',
+      name: 'nav_about_us',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `退出登录`
+  String get nav_logout {
+    return Intl.message(
+      '退出登录',
+      name: 'nav_logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `夜间模式`
+  String get nav_night_mode {
+    return Intl.message(
+      '夜间模式',
+      name: 'nav_night_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TODO`
+  String get nav_todo {
+    return Intl.message(
+      'TODO',
+      name: 'nav_todo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `广场`
+  String get nav_square {
+    return Intl.message(
+      '广场',
+      name: 'nav_square',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的积分`
+  String get nav_my_score {
+    return Intl.message(
+      '我的积分',
+      name: 'nav_my_score',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `轻松一下`
+  String get nav_girl {
+    return Intl.message(
+      '轻松一下',
+      name: 'nav_girl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `问答`
+  String get nav_question {
+    return Intl.message(
+      '问答',
+      name: 'nav_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ID:`
+  String get nav_id {
+    return Intl.message(
+      'ID:',
+      name: 'nav_id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `等级:`
+  String get nav_grade {
+    return Intl.message(
+      '等级:',
+      name: 'nav_grade',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `排名:`
+  String get nav_rank {
+    return Intl.message(
+      '排名:',
+      name: 'nav_rank',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

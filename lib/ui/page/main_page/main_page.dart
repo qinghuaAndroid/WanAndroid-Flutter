@@ -9,7 +9,6 @@ import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/ui/dialog/dialog.dart';
 import 'package:wan_android_flutter/ui/page/home_page/home_page.dart';
-import 'package:wan_android_flutter/ui/page/my_page/my_controller.dart';
 import 'package:wan_android_flutter/ui/page/navigation_page/navigation_page.dart';
 import 'package:wan_android_flutter/ui/page/system_page/system_page.dart';
 import 'package:wan_android_flutter/ui/page/tabs_page/tabs_page.dart';
@@ -17,6 +16,7 @@ import 'package:wan_android_flutter/utils/utils.dart';
 
 import 'main_controller.dart';
 import 'widget/bottom_navigation_bar.dart';
+import 'widget/drawer_widget.dart';
 
 /// @class : MainPage
 /// @date : 2021/08/19
@@ -67,21 +67,6 @@ class MainTabOptionsState extends State<MainPage>
     super.initState();
     tabController = TabController(length: 5, vsync: this);
     WidgetsBinding.instance.addObserver(this);
-
-    ///监听TabBar切换事件
-    tabController?.addListener(() {
-      var index = tabController?.index;
-
-      ///修复执行2次的BUG,增加条件
-      if (tabController?.index == tabController?.animation?.value) {
-        if (index == tabController!.length - 1) {
-          Get.find<MyController>()
-            ..notifyUserInfo()
-            ..notifyBrowseHistory()
-            ..notifyShareArticle();
-        }
-      }
-    });
   }
 
   @override
@@ -114,60 +99,7 @@ class MainTabOptionsState extends State<MainPage>
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(color: Colors.blue),
-              child: Column(
-                children: [
-                  Container(
-                    width: 80.w,
-                    height: 80.w,
-                    margin: EdgeInsetsDirectional.only(bottom: 5.w),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(40.w)),
-                      border: Border.all(color: Colors.white, width: 2.w),
-                    ),
-                    child: ClipOval(
-                      child: Image.asset(
-                        assetImage('ic_default_avatar'),
-                        width: 80.w,
-                        height: 80.w,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    mainController.userInfo.nickname,
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: DrawerWidget(controller: mainController),
       body: TabBarView(
         controller: tabController,
         children: const [

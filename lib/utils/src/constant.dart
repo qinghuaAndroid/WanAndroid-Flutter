@@ -8,7 +8,7 @@ class Constant {
       "https://blog.csdn.net/lalallallalla?spm=1001.2101.3001.5343";
 
   ///Github地址
-  static const githubLike = "https://github.com/jhflovehqy/flutter_bolg_manage";
+  static const githubLike = "https://github.com/qinghuaAndroid/WanAndroid-Flutter";
 
   ///WanAndroid地址
   static const wanAndroidLike = "https://wanandroid.com/blog/show/2";

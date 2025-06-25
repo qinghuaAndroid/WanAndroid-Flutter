@@ -3,5 +3,18 @@
     "tab_2":"知识体系",
     "tab_3":"公众号",
     "tab_4":"导航",
-    "tab_5":"项目"
+    "tab_5":"项目",
+    "nav_my_collect":"我的收藏",
+    "nav_setting":"系统设置",
+    "nav_about_us":"关于我们",
+    "nav_logout":"退出登录",
+    "nav_night_mode":"夜间模式",
+    "nav_todo":"TODO",
+    "nav_square":"广场",
+    "nav_my_score":"我的积分",
+    "nav_girl":"轻松一下",
+    "nav_question":"问答",
+    "nav_id":"ID:",
+    "nav_grade":"等级:",
+    "nav_rank":"排名:"
 }
