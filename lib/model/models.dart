@@ -1,3 +1,4 @@
+export 'src/article_type.dart';
 export 'src/banner_mode.dart';
 export 'src/collect_model.dart';
 export 'src/hotword_mode.dart';

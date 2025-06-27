@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/generated/l10n.dart';
+import 'package:wan_android_flutter/model/models.dart';
 import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/ui/page/main_page/main_controller.dart';
@@ -76,12 +77,28 @@ class DrawerWidget extends StatelessWidget {
           XListTile(
             leading: assetImage('ic_question'),
             title: S.of(context).nav_question,
-            onTap: () {},
+            onTap: () {
+              Navigate.push(
+                Routes.articlePage,
+                arguments: {
+                  "articleType": ArticleType.question,
+                  "title": S.of(context).nav_question,
+                },
+              );
+            },
           ),
           XListTile(
             leading: assetImage('ic_square'),
             title: S.of(context).nav_square,
-            onTap: () {},
+            onTap: () {
+              Navigate.push(
+                Routes.articlePage,
+                arguments: {
+                  "articleType": ArticleType.square,
+                  "title": S.of(context).nav_square,
+                },
+              );
+            },
           ),
           XListTile(
             leading: assetImage('ic_setting'),
@@ -96,11 +113,6 @@ class DrawerWidget extends StatelessWidget {
             onTap: () {
               Navigate.push(Routes.aboutPage);
             },
-          ),
-          XListTile(
-            leading: assetImage('ic_logout'),
-            title: S.of(context).nav_logout,
-            onTap: () {},
           ),
         ],
       ),

@@ -22,7 +22,6 @@ class ProjectController extends BaseGetPageController {
     RefreshController controller, {
     Refresh refresh = Refresh.first,
   }) {
-    print('=====================requestData-1: $id, $page');
     request.getWxArticle(
       id,
       page,
@@ -34,7 +33,6 @@ class ProjectController extends BaseGetPageController {
           projectData.clear();
         }
         projectData.addAll(data);
-        print('=====================requestData-2: ${projectData.length}');
         showSuccess(projectData);
         update();
       },

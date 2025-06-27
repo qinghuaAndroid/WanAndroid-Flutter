@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 import 'package:wan_android_flutter/widgets/src/pull_smart_refresher.dart';
 
@@ -11,6 +10,8 @@ import 'get_controller_inject.dart';
 /// 如果没有分页，请使用BaseGetController
 /// 此页面暂时不对数据进行处理，不放置List在此处，因为当前已经很简洁了，不需要绑定[RefreshWidget]进行节省代码
 abstract class BaseGetPageController extends BaseGetController {
+  ///初始页数
+  final int initialPage = 1;
 
   ///当前页数
   int page = 1;
@@ -24,6 +25,7 @@ abstract class BaseGetPageController extends BaseGetController {
   ///预留初次加载，注意只供上拉下拉使用
   initPullLoading(RefreshController controller) {
     if (isInit) {
+      page = initialPage;
       this.controller = controller;
       requestData(controller);
     }
@@ -31,7 +33,7 @@ abstract class BaseGetPageController extends BaseGetController {
 
   ///预留上拉刷新
   onLoadRefresh(RefreshController controller) {
-    page = 1;
+    page = initialPage;
     requestData(controller, refresh: Refresh.pull);
   }
 

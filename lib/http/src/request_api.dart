@@ -18,6 +18,8 @@ class RequestApi{
   static const String apiTab = 'project/tree/json';
   ///知识体系
   static const String apiSystem = 'tree/json';
+  ///知识体系下的文章
+  static const String apiSystemArticles = 'article/list/page/json';
   ///项目接口
   static const String apiProject = 'article/listproject/page/json';
   ///积分排行榜接口

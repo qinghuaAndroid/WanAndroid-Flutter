@@ -1,4 +1,1 @@
-enum TagType {
-  project,
-  publicAccount,
-}
+enum TagType { project, publicAccount }

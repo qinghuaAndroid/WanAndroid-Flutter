@@ -201,6 +201,36 @@ class RequestRepository {
     );
   }
 
+  ///请求知识体系下的文章
+  /// [success] 请求成功回调
+  /// [fail] 请求失败回调
+  requestSystemArticles(
+    String cid,
+    int page, {
+    SuccessOver<List<ProjectDetail>>? success,
+    Fail? fail,
+  }) {
+    Request.get<dynamic>(
+      '${RequestApi.apiSystemArticles.replaceFirst(RegExp('page'), '$page')}?cid=$cid',
+      <String, dynamic>{},
+      dialog: false,
+      success: (data) {
+        ProjectPage pageData = ProjectPage.fromJson(data);
+        var list = pageData.datas.map((value) {
+          return ProjectDetail.fromJson(value);
+        }).toList();
+        if (success != null) {
+          success(list, pageData.over);
+        }
+      },
+      fail: (code, msg) {
+        if (fail != null) {
+          fail(code, msg);
+        }
+      },
+    );
+  }
+
   ///请求积分排行榜接口
   ///[id]文章ID
   /// [success] 请求成功回调
@@ -599,7 +629,7 @@ class RequestRepository {
       success: (data) {
         var list = data.map((e) {
           var navigation = Navigation.fromJson(e);
-          var list = navigation.articles.map((e){
+          var list = navigation.articles.map((e) {
             return ProjectDetail.fromJson(e);
           }).toList();
           navigation.articles = list;

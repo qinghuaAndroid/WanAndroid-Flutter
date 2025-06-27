@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/src/get_auth_middleware.dart';
+import 'package:wan_android_flutter/ui/page/article_page/article_binding.dart';
+import 'package:wan_android_flutter/ui/page/article_page/article_page.dart';
 import 'package:wan_android_flutter/ui/page/color_picker_page/color_picker_page.dart';
 import 'package:wan_android_flutter/ui/page/login_page/login_binding.dart';
 import 'package:wan_android_flutter/ui/page/login_page/login_page.dart';
@@ -89,6 +91,9 @@ abstract class Routes {
   ///分享页面
   static const String sharePage = '/share';
 
+  ///文章页面
+  static const String articlePage = '/article';
+
   ///未知页面
   static const unknown = "/unknown";
 
@@ -177,6 +182,11 @@ abstract class Routes {
       name: sharePage,
       page: () => const SharePage(),
       binding: ShareBinding(),
+    ),
+    GetPage(
+      name: articlePage,
+      page: () => const ArticlePage(),
+      binding: ArticleBinding(),
     ),
   ];
 
