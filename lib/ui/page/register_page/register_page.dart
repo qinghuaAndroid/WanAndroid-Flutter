@@ -19,15 +19,9 @@ class RegisterPage extends GetCommonView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(R.assetsImagesLoginBackground),
-            fit: BoxFit.cover,
-          ),
-        ),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -36,9 +30,6 @@ class RegisterPage extends GetCommonView<RegisterController> {
                 backOnTap: () => Navigate.pop(),
                 backgroundColor: Colors.transparent,
               ),
-
-              ///logo及app名称
-              const LogoNameWidget(),
 
               ///账户名输入框
               EditWidget(

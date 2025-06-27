@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/get/get.dart';
+import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
@@ -19,28 +21,16 @@ class LoginPage extends GetCommonView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(R.assetsImagesLoginBackground),
-            fit: BoxFit.cover,
-          ),
-        ),
         child: Column(
           children: [
-            ToolBar(
-              backColor: Colors.white,
-              backgroundColor: Colors.transparent,
-            ),
-
-            ///logo及app名称
-            const LogoNameWidget(),
+            SizedBox(height: 200),
 
             ///账户名输入框
             EditWidget(
-              iconWidget: const Icon(Icons.perm_identity, color: Colors.white),
+              iconWidget: const Icon(Icons.perm_identity, color: Colors.black54),
               hintText: StringStyles.loginAccountNameHint.tr,
               onChanged: (text) => controller
                 ..account = text
@@ -49,7 +39,7 @@ class LoginPage extends GetCommonView<LoginController> {
 
             ///密码输入框
             EditWidget(
-              iconWidget: const Icon(Icons.lock_open, color: Colors.white),
+              iconWidget: const Icon(Icons.lock_open, color: Colors.black54),
               hintText: StringStyles.loginAccountPwdHint.tr,
               passwordType: true,
               onChanged: (text) => controller
@@ -64,8 +54,8 @@ class LoginPage extends GetCommonView<LoginController> {
               margin: const EdgeInsets.only(top: 36, left: 25, right: 25),
               decoration: BoxDecoration(
                 color: controller.changeShowButton()
-                    ? ColorStyle.color_24CF5F
-                    : ColorStyle.color_24CF5F_20,
+                    ? Provider.of<ThemeColorsNotifier>(context).color
+                    : Provider.of<ThemeColorsNotifier>(context).color.withAlpha(128),
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
               ),
               child: TextButton(
@@ -79,31 +69,8 @@ class LoginPage extends GetCommonView<LoginController> {
                 child: Text(
                   StringStyles.loginButton.tr,
                   style: controller.changeShowButton()
-                      ? Styles.style_white_18
-                      : Styles.style_white24_18,
-                ),
-              ),
-            ),
-
-            ///注册按钮
-            Container(
-              width: double.infinity,
-              height: 50,
-              margin: const EdgeInsets.only(top: 16, left: 25, right: 25),
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
-                border: Border.all(color: Colors.white, width: 1),
-              ),
-              child: TextButton(
-                style: ButtonStyles.getButtonStyle(),
-                onPressed: () {
-                  KeyboardUtils.hideKeyboard(context);
-                  Navigate.push(Routes.registerPage);
-                },
-                child: Text(
-                  StringStyles.registerButton.tr,
-                  style: Styles.style_white_18,
+                      ? Styles.style_white_16
+                      : Styles.style_white_16,
                 ),
               ),
             ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
 
@@ -48,7 +50,7 @@ class _EditWidgetState extends State<EditWidget> {
             autofocus: false,
             maxLines: 1,
             obscureText: eyeExpand && widget.passwordType,
-            style: Styles.style_white_16,
+            style: Styles.style_black_14,
             onChanged: (text) {
               if (widget.onChanged != null) {
                 widget.onChanged!(text);
@@ -67,10 +69,10 @@ class _EditWidgetState extends State<EditWidget> {
 
             ///样式
             decoration: InputDecoration(
-              fillColor: Colors.white12,
+              fillColor: Colors.transparent,
               filled: true,
               hintText: widget.hintText,
-              hintStyle: Styles.style_white_16,
+              hintStyle: Styles.style_9F9EA6_14,
               border: _getEditBorder(false),
               focusedBorder: _getEditBorder(true),
               disabledBorder: _getEditBorder(false),
@@ -87,7 +89,7 @@ class _EditWidgetState extends State<EditWidget> {
         Positioned(width: 36, height: 36, left: 36, child: widget.iconWidget),
         Positioned(
           left: 76,
-          child: Container(width: 1, height: 18, color: Colors.white54),
+          child: Container(width: 1, height: 18, color: Colors.black54),
         ),
         Positioned(
           right: 40,
@@ -97,7 +99,7 @@ class _EditWidgetState extends State<EditWidget> {
               icon: Icon(
                 eyeExpand ? Icons.remove_red_eye : Icons.visibility_off,
                 size: 24,
-                color: Colors.white,
+                color: Colors.black54,
               ),
               onPressed: () {
                 setState(() {
@@ -113,11 +115,12 @@ class _EditWidgetState extends State<EditWidget> {
 
   ///获取输入框的Border属性，可公用
   ///[isEdit]是否获取焦点
-  OutlineInputBorder _getEditBorder(bool isEdit) {
-    return OutlineInputBorder(
-      borderRadius: const BorderRadius.all(Radius.circular(30)),
+  UnderlineInputBorder _getEditBorder(bool isEdit) {
+    return UnderlineInputBorder(
       borderSide: BorderSide(
-        color: isEdit ? Colors.green : Colors.white24,
+        color: isEdit
+            ? Provider.of<ThemeColorsNotifier>(context).color
+            : Colors.black26,
         width: 1,
       ),
     );
