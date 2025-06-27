@@ -107,28 +107,20 @@ class _BannerState extends State<BannerWidget> {
             onPanDown: (details) {
               _cancelTimer();
             },
-
-            ///回传点击位置
             onTap: () {
               widget.onTap(index % length);
             },
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: widget.banner[index % length].isAssets
-                    ? Container(
-                        color: ColorStyle.color_FBE240,
-                        child: Image.asset(
-                          widget.banner[index % length].imagePath,
-                        ),
-                      )
-                    : Image.network(
-                        widget.banner[index % length].imagePath,
-                        fit: BoxFit.fill,
-                      ),
-              ),
-            ),
+            child: widget.banner[index % length].isAssets
+                ? Container(
+                    color: ColorStyle.color_FBE240,
+                    child: Image.asset(
+                      widget.banner[index % length].imagePath,
+                    ),
+                  )
+                : Image.network(
+                    widget.banner[index % length].imagePath,
+                    fit: BoxFit.fill,
+                  ),
           );
         },
       ),

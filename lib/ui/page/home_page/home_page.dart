@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
@@ -34,13 +35,12 @@ class HomePage extends GetSaveView<HomeController> {
                     itemBuilder: (BuildContext context, int index) {
                       ///将Banner装载到ListView中
                       if (index == 0) {
-                        return Container(
-                          margin: const EdgeInsets.only(top: 10, bottom: 10),
+                        return SizedBox(
                           width: double.infinity,
-                          height: 140,
+                          height: 215.w,
                           child: BannerWidget(
                             controller.banner,
-                            height: 140,
+                            height: 215.w,
                             onTap: (index) {
                               if (index == 0) {
                                 Navigate.push(Routes.rankingPage);
