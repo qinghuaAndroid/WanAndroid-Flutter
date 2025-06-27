@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:wan_android_flutter/get/src/get_auth_middleware.dart';
+import 'package:wan_android_flutter/ui/page/color_picker_page/color_picker_page.dart';
 import 'package:wan_android_flutter/ui/page/login_page/login_binding.dart';
 import 'package:wan_android_flutter/ui/page/login_page/login_page.dart';
 import 'package:wan_android_flutter/ui/page/main_page/main_binding.dart';
@@ -72,6 +73,9 @@ abstract class Routes {
 
   ///语言
   static const String settingLanguagePage = '/language';
+
+  ///主题颜色
+  static const String settingThemeColors = '/themeColors';
 
   ///我的收藏
   static const String collectPage = '/collect';
@@ -153,6 +157,7 @@ abstract class Routes {
       binding: SettingBinding(),
     ),
     GetPage(name: settingLanguagePage, page: () => const SettingLanguagePage()),
+    GetPage(name: settingThemeColors, page: () => const ColorPickerPage()),
     GetPage(
       name: collectPage,
       page: () => const CollectPage(),

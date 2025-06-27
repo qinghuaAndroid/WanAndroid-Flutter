@@ -37,6 +37,12 @@ class SettingPage extends GetCommonView<SettingController> {
             ),
           ),
 
+          ListTile(
+            onTap: () => Navigate.push(Routes.settingThemeColors),
+            title: Text(StringStyles.settingThemeColors.tr),
+            trailing: const Icon(Icons.keyboard_arrow_right),
+          ),
+
           DividerStyle.divider20Half,
 
           ListTile(

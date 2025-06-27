@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/model/models.dart' hide ProjectPage;
+import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/ui/page/project_page/project_controller.dart';
+import 'package:wan_android_flutter/ui/page/project_page/project_page.dart';
 import 'package:wan_android_flutter/ui/page/tabs_page/tabs_controller.dart';
-
-import '../project_page/project_page.dart';
 
 class TabsPage extends StatefulWidget {
   final TagType tagType;
@@ -54,7 +55,9 @@ class _TabsPageState extends State<TabsPage>
           child: Column(
             children: [
               DecoratedBox(
-                decoration: BoxDecoration(color: Colors.blue),
+                decoration: BoxDecoration(
+                  color: Provider.of<ThemeColorsNotifier>(context).color,
+                ),
                 child: _tabBar(tabController),
               ),
               Expanded(

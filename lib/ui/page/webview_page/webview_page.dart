@@ -33,7 +33,6 @@ class WebViewPage extends GetCommonView<WebController> {
             Stack(
               children: [
                 ToolBar(
-                  backColor: ColorStyle.color_474747,
                   backOnTap: () => Get.back(result: '${controller.isCollect}'),
                   title: controller.detail.title,
                 ),
@@ -60,6 +59,10 @@ class WebViewPage extends GetCommonView<WebController> {
                         R.assetsImagesShare,
                         width: 16,
                         height: 16,
+                        colorFilter: ColorFilter.mode(
+                          Colors.white,
+                          BlendMode.srcIn,
+                        ),
                       ),
                     ),
                   ),

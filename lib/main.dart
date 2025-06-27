@@ -24,7 +24,12 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
   await Injection.init();
-  runApp(MultiProvider(providers: [LocaleProvider()], child: MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [LocaleProvider(), ThemeColorsProvider()],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

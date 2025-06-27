@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wan_android_flutter/model/models.dart';
+import 'package:wan_android_flutter/utils/src/color_util.dart';
 
 import 'sp_key.dart';
 
@@ -74,6 +75,32 @@ class SpUtil {
         return null;
       } else {
         return Language.fromJson(jsonDecode(json));
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+      return null;
+    }
+  }
+
+  ///存储主题颜色
+  ///[color] 主题颜色
+  static updateThemeColor(Color color) {
+    Get.find<SharedPreferences>().remove(SPKey.themeColors);
+    Get.find<SharedPreferences>().setString(
+      SPKey.themeColors,
+      ColorUtil.colorToHexString(color),
+    );
+  }
+
+  ///获取主题颜色
+  static Color? getThemeColor() {
+    SharedPreferences sp = Get.find<SharedPreferences>();
+    try {
+      var colorString = sp.getString(SPKey.themeColors);
+      if (colorString == null) {
+        return null;
+      } else {
+        return ColorUtil.hexStringColor(colorString);
       }
     } catch (e) {
       debugPrint(e.toString());

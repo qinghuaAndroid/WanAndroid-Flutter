@@ -15,7 +15,7 @@ import 'widget/search_top_widget.dart';
 class SearchPage extends GetCommonView<SearchController> {
   ///TextFieId控制器
 
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {

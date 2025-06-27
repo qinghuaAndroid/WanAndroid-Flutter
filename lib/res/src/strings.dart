@@ -77,6 +77,7 @@ class StringStyles{
   static const String settingCache = "settingCache";
   static const String settingCacheSuccess = "settingCacheSuccess";
   static const String settingCacheFail = "settingCacheFail";
+  static const String settingThemeColors = "settingThemeColors";
   static const String settingExitLogin = "settingExitLogin";
 
   static const String refreshNoData = "refreshNoData";
@@ -194,6 +195,7 @@ class Messages extends Translations{
       StringStyles.settingCache : "清除缓存",
       StringStyles.settingCacheSuccess : "清除缓存成功!",
       StringStyles.settingCacheFail : "清除缓存失败!",
+      StringStyles.settingThemeColors : "主题颜色",
       StringStyles.settingExitLogin : "退出登录",
       StringStyles.pointsNotifySuccess : "刷新成功",
       StringStyles.refreshNoData : "没有更多数据啦",
@@ -296,6 +298,7 @@ class Messages extends Translations{
       StringStyles.settingCache : "清除緩存",
       StringStyles.settingCacheSuccess : "清除緩存成功!",
       StringStyles.settingCacheFail : "清除緩存失敗!",
+      StringStyles.settingThemeColors : "主題顔色",
       StringStyles.settingExitLogin : "退出登錄",
       StringStyles.pointsNotifySuccess : "刷新成功",
       StringStyles.refreshNoData : "沒有更多數據啦",
@@ -398,6 +401,7 @@ class Messages extends Translations{
       StringStyles.settingCache : "清除緩存",
       StringStyles.settingCacheSuccess : "清除緩存成功!",
       StringStyles.settingCacheFail : "清除緩存失敗!",
+      StringStyles.settingThemeColors : "主題顔色",
       StringStyles.settingExitLogin : "退出登錄",
       StringStyles.pointsNotifySuccess : "刷新成功",
       StringStyles.refreshNoData : "沒有更多數據啦",
@@ -500,6 +504,7 @@ class Messages extends Translations{
       StringStyles.settingCache : "Clear cache",
       StringStyles.settingCacheSuccess : "Clear cache successfully!",
       StringStyles.settingCacheFail : "Failed to clear cache!",
+      StringStyles.settingThemeColors : "Theme Colors",
       StringStyles.settingExitLogin : "Sign out",
       StringStyles.pointsNotifySuccess : "Refresh successfully",
       StringStyles.refreshNoData : "No more data",

@@ -9,6 +9,9 @@ class SPKey {
   ///国际化语言环境
   static const String language = 'language';
 
+  ///主题颜色
+  static const String themeColors = 'themeColors';
+
   ///搜索历史记录
   static const String searchHistory = 'searchHistory';
 

@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/generated/l10n.dart';
 import 'package:wan_android_flutter/model/models.dart' hide ProjectPage;
+import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/routes/routes.dart';
 import 'package:wan_android_flutter/ui/dialog/dialog.dart';
@@ -83,12 +85,12 @@ class MainTabOptionsState extends State<MainPage>
     return Scaffold(
       backgroundColor: ColorStyle.color_F8F9FC,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Provider.of<ThemeColorsNotifier>(context).color,
         iconTheme: IconThemeData(color: Colors.white),
         title: Obx(
           () => Text(
             _title(mainController.currentIndex.value),
-            style: TextStyle(color: Colors.white, fontSize: 20.sp),
+            style: TextStyle(color: Colors.white, fontSize: 18.sp),
           ),
         ),
         actionsPadding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),

@@ -50,16 +50,6 @@ class AboutPage extends GetCommonView<AboutController> {
             DividerStyle.divider1HalfPadding20,
 
             ListTile(
-              title: Text(StringStyles.aboutCSDN.tr),
-              trailing: const Icon(Icons.keyboard_arrow_right),
-              onTap: () => WebUtil.toWebPageOther(
-                title: StringStyles.aboutCSDN.tr,
-                link: Constant.csdnLike,
-              ),
-            ),
-            DividerStyle.divider1HalfPadding20,
-
-            ListTile(
               title: Text(StringStyles.aboutSupport.tr),
               trailing: const Icon(Icons.keyboard_arrow_right),
               onTap: () => WebUtil.toWebPageOther(
