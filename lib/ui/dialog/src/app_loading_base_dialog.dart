@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
 
 class BaseLoadingDialog {
@@ -54,7 +56,10 @@ Widget bufferingView(BuildContext context) {
                 SizedBox(
                   width: 24.w,
                   height: 24.w,
-                  child: CircularProgressIndicator(strokeWidth: 2.w),
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.w,
+                    color: Provider.of<ThemeColorsNotifier>(context).color,
+                  ),
                 ),
                 SizedBox(width: 6.w),
                 Container(
