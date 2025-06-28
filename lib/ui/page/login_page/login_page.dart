@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/get/get.dart';
@@ -20,17 +21,17 @@ class LoginPage extends GetCommonView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent),
       resizeToAvoidBottomInset: false,
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Column(
           children: [
-            SizedBox(height: 200),
+            SizedBox(height: 100),
 
             ///账户名输入框
             EditWidget(
-              iconWidget: const Icon(Icons.perm_identity, color: Colors.black54),
               hintText: StringStyles.loginAccountNameHint.tr,
               onChanged: (text) => controller
                 ..account = text
@@ -39,7 +40,6 @@ class LoginPage extends GetCommonView<LoginController> {
 
             ///密码输入框
             EditWidget(
-              iconWidget: const Icon(Icons.lock_open, color: Colors.black54),
               hintText: StringStyles.loginAccountPwdHint.tr,
               passwordType: true,
               onChanged: (text) => controller
@@ -50,13 +50,13 @@ class LoginPage extends GetCommonView<LoginController> {
             ///登录按钮
             Container(
               width: double.infinity,
-              height: 50,
-              margin: const EdgeInsets.only(top: 36, left: 25, right: 25),
+              height: 45.w,
+              margin: EdgeInsets.only(top: 50.w, left: 50.w, right: 50.w),
               decoration: BoxDecoration(
                 color: controller.changeShowButton()
                     ? Provider.of<ThemeColorsNotifier>(context).color
-                    : Provider.of<ThemeColorsNotifier>(context).color.withAlpha(128),
-                borderRadius: const BorderRadius.all(Radius.circular(30)),
+                    : Colors.black12,
+                borderRadius: BorderRadius.all(Radius.circular(4.w)),
               ),
               child: TextButton(
                 style: controller.changeShowButton()
@@ -71,6 +71,18 @@ class LoginPage extends GetCommonView<LoginController> {
                   style: controller.changeShowButton()
                       ? Styles.style_white_16
                       : Styles.style_white_16,
+                ),
+              ),
+            ),
+
+            ///注册按钮
+            GestureDetector(
+              onTap: () => Navigate.push(Routes.registerPage),
+              child: Padding(
+                padding: EdgeInsetsDirectional.all(15.w),
+                child: Text(
+                  StringStyles.registerButton.tr,
+                  style: TextStyle(color: Colors.redAccent, fontSize: 16),
                 ),
               ),
             ),

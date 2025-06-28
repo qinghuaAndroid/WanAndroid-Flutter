@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
@@ -16,9 +17,6 @@ class EditWidget extends StatefulWidget {
   final String hintText;
 
   ///图标Widget
-  final Widget iconWidget;
-
-  ///图标Widget
   final bool passwordType;
 
   const EditWidget({
@@ -26,7 +24,6 @@ class EditWidget extends StatefulWidget {
     this.onChanged,
     this.hintText = "",
     this.passwordType = false,
-    required this.iconWidget,
   });
 
   @override
@@ -36,6 +33,7 @@ class EditWidget extends StatefulWidget {
 class _EditWidgetState extends State<EditWidget> {
   bool showPassWord = false;
   bool eyeExpand = true;
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +41,12 @@ class _EditWidgetState extends State<EditWidget> {
       alignment: AlignmentDirectional.centerStart,
       children: [
         Container(
-          margin: const EdgeInsets.only(top: 8, bottom: 8, left: 25, right: 25),
+          margin: EdgeInsets.symmetric(vertical: 8.w, horizontal: 50.w),
+          alignment: Alignment.centerLeft,
           child: TextField(
+            controller: controller,
             keyboardType: TextInputType.number,
-            textAlign: TextAlign.left,
+            textAlign: TextAlign.start,
             autofocus: false,
             maxLines: 1,
             obscureText: eyeExpand && widget.passwordType,
@@ -66,8 +66,6 @@ class _EditWidgetState extends State<EditWidget> {
                 filterPattern: RegExp("[a-zA-Z]|[0-9]|@|."),
               ),
             ],
-
-            ///样式
             decoration: InputDecoration(
               fillColor: Colors.transparent,
               filled: true,
@@ -77,38 +75,36 @@ class _EditWidgetState extends State<EditWidget> {
               focusedBorder: _getEditBorder(true),
               disabledBorder: _getEditBorder(false),
               enabledBorder: _getEditBorder(false),
-              contentPadding: const EdgeInsets.only(
-                top: 16,
-                bottom: 16,
-                left: 60,
-                right: 16,
-              ),
+              contentPadding: EdgeInsets.zero,
             ),
           ),
         ),
-        Positioned(width: 36, height: 36, left: 36, child: widget.iconWidget),
-        Positioned(
-          left: 76,
-          child: Container(width: 1, height: 18, color: Colors.black54),
-        ),
-        Positioned(
-          right: 40,
-          child: Visibility(
-            visible: showPassWord && widget.passwordType,
-            child: IconButton(
-              icon: Icon(
-                eyeExpand ? Icons.remove_red_eye : Icons.visibility_off,
-                size: 24,
-                color: Colors.black54,
+        widget.passwordType
+            ? PositionedDirectional(
+                end: 50.w,
+                child: IconButton(
+                  icon: Image.asset(
+                    eyeExpand
+                        ? assetImage('password_show')
+                        : assetImage('password_hide'),
+                    width: 24,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      eyeExpand = !eyeExpand;
+                    });
+                  },
+                ),
+              )
+            : PositionedDirectional(
+                end: 50.w,
+                child: IconButton(
+                  icon: Image.asset(assetImage('ic_clear'), width: 24),
+                  onPressed: () {
+                    controller.clear();
+                  },
+                ),
               ),
-              onPressed: () {
-                setState(() {
-                  eyeExpand = !eyeExpand;
-                });
-              },
-            ),
-          ),
-        ),
       ],
     );
   }
@@ -120,8 +116,8 @@ class _EditWidgetState extends State<EditWidget> {
       borderSide: BorderSide(
         color: isEdit
             ? Provider.of<ThemeColorsNotifier>(context).color
-            : Colors.black26,
-        width: 1,
+            : ColorStyle.color_EFF1F8,
+        width: 0.5.w,
       ),
     );
   }
