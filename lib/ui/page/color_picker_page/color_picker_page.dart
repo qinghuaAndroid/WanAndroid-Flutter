@@ -42,20 +42,6 @@ class _ColorPickerPageState extends State<ColorPickerPage> {
         padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
         children: <Widget>[
           const SizedBox(height: 16),
-          // Show the selected color.
-          ListTile(
-            title: const Text('Select color below to change this color'),
-            subtitle: Text(
-              '${ColorTools.materialNameAndCode(screenPickerColor)} '
-              'aka ${ColorTools.nameThatColor(screenPickerColor)}',
-            ),
-            trailing: ColorIndicator(
-              width: 44,
-              height: 44,
-              borderRadius: 22,
-              color: screenPickerColor,
-            ),
-          ),
 
           // Show the color picker in sized box in a raised card.
           SizedBox(

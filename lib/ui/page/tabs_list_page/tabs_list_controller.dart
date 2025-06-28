@@ -1,15 +1,6 @@
-import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
-import 'package:wan_android_flutter/get/get.dart';
-import 'package:wan_android_flutter/model/models.dart';
-import 'package:wan_android_flutter/utils/utils.dart';
-import 'package:wan_android_flutter/widgets/widgets.dart';
+part of "tabs_list_page.dart";
 
-/// @class : ProjectController
-/// @date : 2021/08/23
-/// @name : jhf
-/// @description :项目 控制器层
-class ProjectController extends BaseGetPageController {
-
+class TabsListController extends BaseGetPageController {
   late TagType tagType;
 
   late String id;

@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/model/models.dart' hide ProjectPage;
 import 'package:wan_android_flutter/provider/provider.dart';
-import 'package:wan_android_flutter/ui/page/project_page/project_controller.dart';
-import 'package:wan_android_flutter/ui/page/project_page/project_page.dart';
+import 'package:wan_android_flutter/ui/page/tabs_list_page/tabs_list_page.dart';
 import 'package:wan_android_flutter/ui/page/tabs_page/tabs_controller.dart';
 
 class TabsPage extends StatefulWidget {
@@ -112,18 +111,18 @@ class _TabsPageState extends State<TabsPage>
   List<Widget> _createTabsPage() {
     return widget.tagType == TagType.publicAccount
         ? (controller.wechatPublic).map((model) {
-            final controller = ProjectController();
+            final controller = TabsListController();
             controller.tagType = widget.tagType;
             controller.id = model.id.toString();
             Get.put(controller, tag: model.id.toString());
-            return ProjectPage(id: model.id.toString());
+            return TabsListPage(id: model.id.toString());
           }).toList()
         : (controller.projectTabs).map((model) {
-            final controller = ProjectController();
+            final controller = TabsListController();
             controller.tagType = widget.tagType;
             controller.id = model.id.toString();
             Get.put(controller, tag: model.id.toString());
-            return ProjectPage(id: model.id.toString());
+            return TabsListPage(id: model.id.toString());
           }).toList();
   }
 
