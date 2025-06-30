@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,13 @@ class RegisterPage extends GetCommonView<RegisterController> {
         backgroundColor: Colors.transparent,
         title: Text(StringStyles.registerButton.tr),
         titleTextStyle: TextStyle(fontSize: 18.sp, color: Colors.black),
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          systemNavigationBarColor: Colors.transparent,
+          systemNavigationBarIconBrightness: Brightness.light,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
       ),
       resizeToAvoidBottomInset: true,
       body: SizedBox(
