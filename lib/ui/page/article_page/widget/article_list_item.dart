@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:wan_android_flutter/model/models.dart';
 import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
@@ -31,37 +30,27 @@ class ArticleListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ///作者
-            Row(
-              children: [
-                SvgPicture.asset(R.assetsImagesProgram, width: 16),
-                Box.hBox10,
-                Text(
-                  detail.author.isNotEmpty ? detail.author : detail.shareUser,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: Styles.style_6A6969_14,
-                ),
-              ],
-            ),
             Box.vBox10,
-
-            ///标题
             Text(
               detail.title,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               style: Styles.style_black_16_bold,
             ),
-            Box.vBox10,
-
-            ///发布时间
+            Box.vBox5,
             Row(
               children: [
-                SvgPicture.asset(R.assetsImagesDateTime, width: 16),
+                Text(
+                  detail.author.isNotEmpty ? detail.author : detail.shareUser,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: Styles.style_6A6969_14,
+                ),
                 Box.hBox10,
                 Text(
-                  detail.niceDate,
+                  detail.author.isNotEmpty
+                      ? detail.niceDate
+                      : detail.niceShareDate,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: Styles.style_6A6969_14,

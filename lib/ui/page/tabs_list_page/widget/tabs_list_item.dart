@@ -42,7 +42,7 @@ class TabsListItem extends StatelessWidget {
 class _ProjectListItem extends StatelessWidget {
   final ProjectDetail detail;
 
-  const _ProjectListItem({super.key, required this.detail});
+  const _ProjectListItem({required this.detail});
 
   @override
   Widget build(BuildContext context) {
@@ -121,44 +121,32 @@ class _ProjectListItem extends StatelessWidget {
 class _PublicListItem extends StatelessWidget {
   final ProjectDetail detail;
 
-  const _PublicListItem({super.key, required this.detail});
+  const _PublicListItem({required this.detail});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ///作者
-        Row(
-          children: [
-            SvgPicture.asset(R.assetsImagesProgram, width: 16),
-            Box.hBox10,
-            Text(
-              detail.author,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: Styles.style_6A6969_14,
-            ),
-          ],
-        ),
         Box.vBox10,
-
-        ///标题
         Text(
           detail.title,
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
           style: Styles.style_black_16_bold,
         ),
-        Box.vBox10,
-
-        ///发布时间
+        Box.vBox5,
         Row(
           children: [
-            SvgPicture.asset(R.assetsImagesDateTime, width: 16),
+            Text(
+              detail.author.isNotEmpty ? detail.author : detail.shareUser,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: Styles.style_6A6969_14,
+            ),
             Box.hBox10,
             Text(
-              detail.niceDate,
+              detail.author.isNotEmpty ? detail.niceDate : detail.niceShareDate,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
               style: Styles.style_6A6969_14,
