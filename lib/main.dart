@@ -7,10 +7,11 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/provider/provider.dart';
 import 'package:wan_android_flutter/res/res.dart';
-import 'package:wan_android_flutter/routes/navigation_history_observer.dart';
 
 import 'app/app_theme.dart';
 import 'generated/l10n.dart';
+import 'routes/navigation_history_observer.dart';
+import 'routes/router_reporter.dart';
 import 'routes/routes.dart';
 import 'ui/page/splash_page/splash_binding.dart';
 import 'ui/page/splash_page/splash_page.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
           context,
         ).copyWith(textScaler: TextScaler.noScaling, boldText: false),
         child: GetMaterialApp(
-          navigatorObservers: [NavigationHistoryObserver()],
+          navigatorObservers: [NavigationHistoryObserver(), routeObserver],
           getPages: Routes.routePage,
           debugShowCheckedModeBanner: false,
           popGesture: Get.isPopGestureEnable,
