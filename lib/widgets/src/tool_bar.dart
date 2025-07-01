@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:wan_android_flutter/provider/provider.dart';
@@ -22,6 +23,8 @@ class ToolBar extends StatefulWidget {
 
   final VoidCallback? backOnTap;
 
+  final SystemUiOverlayStyle? systemOverlayStyle;
+
   const ToolBar({
     super.key,
     this.title = "",
@@ -29,6 +32,7 @@ class ToolBar extends StatefulWidget {
     this.backOnTap,
     this.backColor,
     this.titleColor,
+    this.systemOverlayStyle,
   });
 
   @override
@@ -59,6 +63,7 @@ class _ToolBarState extends State<ToolBar> {
           ),
         ),
       ),
+      systemOverlayStyle: widget.systemOverlayStyle,
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -34,7 +36,17 @@ class WebViewPage extends GetCommonView<WebController> {
               children: [
                 ToolBar(
                   backOnTap: () => Get.back(result: '${controller.isCollect}'),
+                  backColor: Colors.black,
                   title: controller.detail.title,
+                  titleColor: Colors.black,
+                  backgroundColor: Colors.transparent,
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    systemNavigationBarColor: Colors.transparent,
+                    systemNavigationBarIconBrightness: Brightness.light,
+                    statusBarIconBrightness: Brightness.dark,
+                    statusBarBrightness: Brightness.light,
+                  ),
                 ),
                 Positioned(
                   right: 20,
@@ -59,16 +71,13 @@ class WebViewPage extends GetCommonView<WebController> {
                         R.assetsImagesShare,
                         width: 16,
                         height: 16,
-                        colorFilter: ColorFilter.mode(
-                          Colors.white,
-                          BlendMode.srcIn,
-                        ),
                       ),
                     ),
                   ),
                 ),
               ],
             ),
+            DividerStyle.divider1Half,
             Expanded(
               child: Stack(
                 children: [

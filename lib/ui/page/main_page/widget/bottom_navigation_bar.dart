@@ -29,6 +29,7 @@ class MBottomNavigationBar extends StatelessWidget {
               unselectedFontSize: 12.sp,
               items: [
                 BottomNavigationBarItem(
+                  backgroundColor: Colors.white,
                   icon: Image.asset(
                     assetImage("home"),
                     width: 24.w,
