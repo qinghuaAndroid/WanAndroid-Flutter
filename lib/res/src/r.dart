@@ -6,10 +6,6 @@
 /// @description :图片、动画、SVG资源文件
 class R {
   ///----------------------------PNG、JPG---------------------------
-  static const String assetsIntegralRanking =
-      'assets/images/3.0x/ranking_integral.png';
-  static const String assetsRankingTopBg =
-      'assets/images/3.0x/ranking_top_bg.png';
   static const String assetsShareQRCode = 'assets/images/3.0x/share_qrcode.png';
 
   ///----------------------------SVG---------------------------

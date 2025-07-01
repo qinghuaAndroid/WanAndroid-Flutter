@@ -42,13 +42,9 @@ class HomePage extends GetSaveView<HomeController> {
                             controller.banner,
                             height: 215.w,
                             onTap: (index) {
-                              if (index == 0) {
-                                Navigate.push(Routes.rankingPage);
-                              } else {
                                 WebUtil.toWebPageBanners(
                                   controller.banner[index],
                                 );
-                              }
                             },
                           ),
                         );

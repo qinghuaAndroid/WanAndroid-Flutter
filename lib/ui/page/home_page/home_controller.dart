@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 import 'package:wan_android_flutter/get/get.dart';
 import 'package:wan_android_flutter/model/models.dart';
-import 'package:wan_android_flutter/res/res.dart';
 import 'package:wan_android_flutter/utils/utils.dart';
 import 'package:wan_android_flutter/widgets/widgets.dart';
 
@@ -63,8 +62,6 @@ class HomeController extends BaseGetPageController {
   void getBanner() {
     request.getBanner(
       success: (data) {
-        ///添加自定义的积分排行榜图片
-        banner.add(Banners(imagePath: R.assetsIntegralRanking, isAssets: true));
         banner.addAll(data);
 
         ///预缓存banner图片

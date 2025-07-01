@@ -24,8 +24,6 @@ import 'package:wan_android_flutter/ui/page/user_module/history_page/history_bin
 import 'package:wan_android_flutter/ui/page/user_module/history_page/history_page.dart';
 import 'package:wan_android_flutter/ui/page/user_module/points_page/points_binding.dart';
 import 'package:wan_android_flutter/ui/page/user_module/points_page/points_page.dart';
-import 'package:wan_android_flutter/ui/page/user_module/ranking_page/ranking_binding.dart';
-import 'package:wan_android_flutter/ui/page/user_module/ranking_page/ranking_page.dart';
 import 'package:wan_android_flutter/ui/page/user_module/setting_page/setting_binding.dart';
 import 'package:wan_android_flutter/ui/page/user_module/setting_page/setting_page.dart';
 import 'package:wan_android_flutter/ui/page/user_module/setting_page/widget/setting_language_page.dart';
@@ -60,9 +58,6 @@ abstract class Routes {
 
   ///用户信息模块
   static const String userInfoPage = '/userInfo';
-
-  ///积分排行榜
-  static const String rankingPage = '/ranking';
 
   ///关于我们
   static const String aboutPage = '/about';
@@ -140,11 +135,6 @@ abstract class Routes {
       name: userInfoPage,
       page: () => const UserInfoPage(),
       binding: UserInfoBinding(),
-    ),
-    GetPage(
-      name: rankingPage,
-      page: () => const RankingPage(),
-      binding: RankingBinding(),
     ),
     GetPage(
       name: aboutPage,
