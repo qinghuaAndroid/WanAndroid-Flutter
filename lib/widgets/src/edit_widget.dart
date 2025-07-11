@@ -45,7 +45,7 @@ class _EditWidgetState extends State<EditWidget> {
           alignment: Alignment.centerLeft,
           child: TextField(
             controller: controller,
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.text,
             textAlign: TextAlign.start,
             autofocus: false,
             maxLines: 1,
