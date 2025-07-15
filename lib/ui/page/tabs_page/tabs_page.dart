@@ -53,11 +53,16 @@ class _TabsPageState extends State<TabsPage>
           top: true,
           child: Column(
             children: [
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Provider.of<ThemeColorsNotifier>(context).color,
-                ),
-                child: _tabBar(tabController),
+              Selector<ThemeColorsNotifier, Color>(
+                builder: (BuildContext context, value, Widget? child) {
+                  return DecoratedBox(
+                    decoration: BoxDecoration(color: value),
+                    child: _tabBar(tabController),
+                  );
+                },
+                selector: (context, themeColorsNotifier) {
+                  return themeColorsNotifier.color;
+                },
               ),
               Expanded(
                 child: TabBarView(
