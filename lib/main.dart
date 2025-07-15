@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -25,11 +27,20 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
   await Injection.init();
-  runApp(
-    MultiProvider(
-      providers: [LocaleProvider(), ThemeColorsProvider()],
-      child: MyApp(),
-    ),
+
+  FlutterError.onError = (FlutterErrorDetails details) {
+    // 异常上报 转发容易遗漏异常消息
+    debugPrint("FlutterError-${details.exception}");
+  };
+
+  final providers = [LocaleProvider(), ThemeColorsProvider()];
+
+  runZonedGuarded(
+    () => runApp(MultiProvider(providers: providers, child: MyApp())),
+    (Object exception, StackTrace stack) async {
+      // 异常上报
+      debugPrint("runZonedGuarded-$exception");
+    },
   );
 }
 
